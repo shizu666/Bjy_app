@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.wms.Order">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单据号"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/showReceipts"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:hint="单据号"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textSize="15sp"
+            android:textColor="#000"
+            android:textColorHint="#000"
+            android:background="@drawable/textview_border"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="20dp"
+        android:text="F2返回"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:background="@drawable/shape"/>
+
+
+
+
+</RelativeLayout>
