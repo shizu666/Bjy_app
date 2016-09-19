@@ -23,7 +23,9 @@
         <activity android:name=".InventoryQuery" />
         <activity android:name=".StockRemoval" />
         <activity android:name=".SameLibraryMove" />
-        <activity android:name=".NoSamelibraryMove"></activity>
+        <activity android:name=".NoSamelibraryMove" />
+        <activity android:name=".tow.XiaoTuiYanShou" />
+        <activity android:name=".tow.LianHuoXIaJia"></activity>
     </application>
 
 </manifest>

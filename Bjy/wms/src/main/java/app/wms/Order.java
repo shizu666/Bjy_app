@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.wms.tow.OrderDetails;
+import app.wms.tow.XiaoTuiYanShou;
 
 
 public class Order extends AppCompatActivity {
@@ -54,12 +55,18 @@ public class Order extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s!=null){
-                    Intent intent = new Intent(Order.this,OrderDetails.class);
-                    Bundle bd = new Bundle();
-                    bd.putCharSequence("order",s);
-                    bd.putInt("index",index);
-                    intent.putExtras(bd);
-                    startActivity(intent);
+                    if(index==7){
+                        Intent intent = new Intent(Order.this,XiaoTuiYanShou.class);
+                        intent.putExtra("order",s);
+                        startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(Order.this,OrderDetails.class);
+                        Bundle bd = new Bundle();
+                        bd.putCharSequence("order",s);
+                        bd.putInt("index",index);
+                        intent.putExtras(bd);
+                        startActivity(intent);
+                    }
                 }
             }
 
