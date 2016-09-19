@@ -31,7 +31,7 @@ public class PdaIndex extends AppCompatActivity {
 
     private void initView() {
         gl = (GridView) findViewById(R.id.gl);
-        List list = new ArrayList<>();
+        final List list = new ArrayList<>();
         list.add("采购上架");
         list.add("调拨上架");
         list.add("返架上架");
@@ -51,11 +51,25 @@ public class PdaIndex extends AppCompatActivity {
         gl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(PdaIndex.this,Order.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("index",position);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                if(position==(list.size()-1)){
+                    Intent intent = new Intent(PdaIndex.this,InventoryQuery.class);
+                    startActivity(intent);
+                }else if(position==(list.size()-7)){
+                    Intent intent = new Intent(PdaIndex.this,StockRemoval.class);
+                    startActivity(intent);
+                }else if(position==8){
+                    Intent intent = new Intent(PdaIndex.this,SameLibraryMove.class);
+                    startActivity(intent);
+                }else if(position==9){
+                    Intent intent = new Intent(PdaIndex.this,NoSamelibraryMove.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(PdaIndex.this,Order.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("index",position);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
             }
         });
 
