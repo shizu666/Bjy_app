@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,PdaIndex.class);
+                MainActivity.this.finish();
                 startActivity(intent);
 
             }

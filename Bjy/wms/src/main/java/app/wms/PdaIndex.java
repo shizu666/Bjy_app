@@ -3,6 +3,7 @@ package app.wms;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -10,12 +11,15 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import app.wms.adapter.GridLayoutAdapter;
 
 public class PdaIndex extends AppCompatActivity {
 
     private GridView gl;
+    private static Boolean isExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +27,6 @@ public class PdaIndex extends AppCompatActivity {
         setContentView(R.layout.activity_pda_index);
         //初始化
         initView();
-
-
     }
 
     private void initView() {
@@ -58,4 +60,31 @@ public class PdaIndex extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==event.KEYCODE_BACK){
+            Timer tExit = null;
+            if (isExit == false) {
+                isExit = true; // 准备退出
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                tExit = new Timer();
+                tExit.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        isExit = false; // 取消退出
+                        }
+                    }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+                } else {
+                finish();
+                System.exit(0);
+                }
+            return false;
+        }else{
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
+
 }

@@ -15,11 +15,13 @@ public class BarcodeCtroller implements BarcodeJNI.ScanCallBack {
     public BarcodeCtroller(Context context){
         this.context = context;
         barcodeJNI = new BarcodeJNI(context);
+        barcodeJNI.setmScanCB(this);
     }
 
-
-
-
+    public void open(){
+        barcodeJNI.Barcode_StartScan();
+        barcodeJNI.Barcode_open();
+    }
 
     @Override
     public void onScanResults(byte[] bytes) {

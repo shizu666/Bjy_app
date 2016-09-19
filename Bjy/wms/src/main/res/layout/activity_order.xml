@@ -22,8 +22,8 @@
             android:text="单据号"
             android:textSize="20sp"
             android:layout_gravity="center_vertical"/>
-        <TextView
-            android:id="@+id/showReceipts"
+        <EditText
+            android:id="@+id/et_order_showReceipts"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:hint="单据号"
@@ -32,10 +32,13 @@
             android:textSize="15sp"
             android:textColor="#000"
             android:textColorHint="#000"
-            android:background="@drawable/textview_border"/>
+            android:background="@drawable/textview_border"
+            android:singleLine="true"
+            android:ellipsize="end"/>
     </LinearLayout>
 
     <Button
+        android:id="@+id/but_order_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
