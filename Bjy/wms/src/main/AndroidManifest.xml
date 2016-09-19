@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".PdaIndex" />
         <activity android:name=".Order" />
-        <activity android:name=".OrderDetails" />
+        <activity android:name=".tow.OrderDetails" />
         <activity android:name=".InventoryQuery" />
         <activity android:name=".StockRemoval" />
         <activity android:name=".SameLibraryMove" />

@@ -1,4 +1,4 @@
-package app.wms;
+package app.wms.tow;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import app.wms.R;
 
 public class OrderDetails extends AppCompatActivity {
 
