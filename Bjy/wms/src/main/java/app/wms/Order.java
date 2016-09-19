@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.wms.tow.LianHuoXIaJia;
 import app.wms.tow.OrderDetails;
 import app.wms.tow.XiaoTuiYanShou;
 
@@ -57,7 +58,11 @@ public class Order extends AppCompatActivity {
                 if(s!=null){
                     if(index==7){
                         Intent intent = new Intent(Order.this,XiaoTuiYanShou.class);
-                        intent.putExtra("order",s);
+                        intent.putExtra("order",s.toString());
+                        startActivity(intent);
+                    }else if(index==4){
+                        Intent intent = new Intent(Order.this,LianHuoXIaJia.class);
+                        intent.putExtra("order",s.toString());
                         startActivity(intent);
                     }else{
                         Intent intent = new Intent(Order.this,OrderDetails.class);

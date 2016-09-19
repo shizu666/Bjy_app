@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">北交云终端</string>
+    <string name="size25">25sp</string>
+    <string name="size20">20sp</string>
+
+    <string-array name="posun">
+        <item>运输破损</item>
+        <item>发货质量</item>
+        <item>其它</item>
+    </string-array>
 </resources>
