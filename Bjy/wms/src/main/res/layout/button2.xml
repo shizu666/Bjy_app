@@ -23,6 +23,7 @@
             android:layout_marginLeft="10dp"
             style="@style/but_com"/>
         <Button
+            android:id="@+id/but_com_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

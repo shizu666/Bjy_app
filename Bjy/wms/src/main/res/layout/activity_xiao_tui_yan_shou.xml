@@ -28,13 +28,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商 品 条 码"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textColor="#000"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -49,13 +49,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商 品 名 称"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:text="炕上代课教师肯德基"
                     android:gravity="center_vertical"
                     android:singleLine="true" />
@@ -69,13 +69,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="保   质    期"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:text="6个月"
                     android:gravity="center_vertical"
                     android:singleLine="true" />
@@ -89,13 +89,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="已 验 数 量"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:text="120/1000"
                     android:gravity="center_vertical"
                     android:singleLine="true" />
@@ -109,13 +109,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="已验SKU数"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:text="2/10"
                     android:gravity="center_vertical"
                     android:singleLine="true" />
@@ -129,7 +129,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="质 量 属 性"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                <RadioGroup
                    android:layout_width="match_parent"
@@ -140,13 +140,13 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="正品"
-                       android:textSize="20sp"/>
+                       android:textSize="@dimen/size"/>
                    <RadioButton
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_marginLeft="10dp"
                        android:text="残品"
-                       android:textSize="20sp"/>
+                       android:textSize="@dimen/size"/>
                </RadioGroup>
             </LinearLayout>
             <LinearLayout
@@ -158,13 +158,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="验 收 数 量"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="100dp"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textColor="#000"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -174,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="10dp"/>
             </LinearLayout>
             <LinearLayout
@@ -186,17 +186,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="破 损 原 因"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <Spinner
                     android:id="@+id/sp_xtys"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp">
+                    android:layout_height="@dimen/height">
                 </Spinner>
             </LinearLayout>
             <include
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 layout="@layout/button" />
 
         </LinearLayout>

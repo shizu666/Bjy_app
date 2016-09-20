@@ -29,7 +29,8 @@
         <activity android:name=".tow.PanDianRenWu" />
         <activity android:name=".tow.BuHuoXiaJia" />
         <activity android:name=".tow.BuHuoShangJia" />
-        <activity android:name=".tow.XiaoFanShangJia"></activity>
+        <activity android:name=".tow.XiaoFanShangJia" />
+        <activity android:name=".three.XiaoFanQingDan"></activity>
     </application>
 
 </manifest>

@@ -8,14 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="but_com">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/size</item>
         <item name="android:textColor">#000</item>
         <item name="android:background">@drawable/shape</item>
     </style>
     <style name="F2_back">
         <item name="android:text">F2返回</item>
         <item name="android:textColor">#000</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/size</item>
         <item name="android:background">@drawable/shape</item>
     </style>
 

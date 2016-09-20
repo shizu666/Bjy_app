@@ -8,4 +8,6 @@
     <dimen name="width100">100dp</dimen>
     <dimen name="left5">5dp</dimen>
     <dimen name="left10">10dp</dimen>
+    <dimen name="size">22sp</dimen>
+    <dimen name="height">35dp</dimen>
 </resources>

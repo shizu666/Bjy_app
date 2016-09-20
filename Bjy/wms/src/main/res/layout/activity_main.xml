@@ -31,12 +31,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="用户名"
-                android:textSize="20sp"/>
+                android:textSize="@dimen/size"/>
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:hint="用户名"
+                android:layout_height="@dimen/height"
+                android:textSize="@dimen/size"
                 android:textColor="#000"
                 android:layout_margin="10dp"
                 android:background="@drawable/bg_edittext"/>
@@ -53,13 +53,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="密    码"
-                android:textSize="20sp"/>
+                android:textSize="@dimen/size"/>
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:hint="密码"
+                android:textSize="@dimen/size"
                 android:inputType="textPassword"
                 android:layout_margin="10dp"
                 android:textColor="#000"
@@ -69,13 +69,14 @@
 
        <RelativeLayout
            android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp">
            <Button
                android:id="@+id/butLanding"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="登陆"
-               android:textSize="25sp"
+               android:textSize="@dimen/size"
                android:layout_alignParentLeft="true"
                android:layout_marginLeft="15dp"/>
            <Button
@@ -83,7 +84,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="修改密码"
-               android:textSize="25sp"
+               android:textSize="@dimen/size"
                android:layout_alignParentRight="true"
                android:layout_marginRight="15dp"/>
        </RelativeLayout>

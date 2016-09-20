@@ -26,14 +26,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品条码"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/height"
                     android:textColor="#000"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:background="@drawable/bg_edittext"
                     android:layout_marginLeft="5dp"
                     android:singleLine="true"/>
@@ -49,15 +49,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品名称"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/height"
                     android:textColor="#fff"
                     android:text="康师傅"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="5dp"/>
 
             </LinearLayout>
@@ -71,15 +71,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="生产日期"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/height"
                     android:textColor="#000"
                     android:text=""
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:background="@drawable/bg_edittext"
                     android:layout_marginLeft="5dp"/>
 
@@ -94,15 +94,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="保  质  期"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/height"
                     android:textColor="#fff"
                     android:text="180天"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="5dp"/>
 
             </LinearLayout>
@@ -116,13 +116,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="有效期至"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/height"
                     android:textColor="#000"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:background="@drawable/bg_edittext"
                     android:layout_marginLeft="5dp"/>
 
@@ -137,13 +137,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="货        位"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/height"
                     android:textColor="#000"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:background="@drawable/bg_edittext"
                     android:layout_marginLeft="5dp"
                     android:singleLine="true"/>
@@ -159,14 +159,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="上架数量"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:padding="10dp"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1000/10000"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
 
                 <CheckBox
@@ -174,8 +174,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="5dp"
-                    android:text="是否赠品"
-                    android:textSize="@dimen/size20"/>
+                    android:text="赠品"
+                    android:textSize="@dimen/size"/>
             </LinearLayout>
 
             <LinearLayout
@@ -188,23 +188,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="上架数量"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="100dp"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/height"
                     android:textColor="#000"
                     android:inputType="number"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:background="@drawable/bg_edittext"
                     android:layout_marginLeft="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
 

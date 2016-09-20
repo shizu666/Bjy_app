@@ -7,8 +7,6 @@
     android:orientation="vertical">
 
     <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         layout="@layout/title"/>
 
     <ScrollView
@@ -28,13 +26,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="原  货  位"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     />
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textColor="#000"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -49,13 +47,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="目的货位"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     />
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textColor="#000"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -70,13 +68,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品条码"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     />
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textColor="#000"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -91,14 +89,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品名称"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     />
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
                     android:text="康师傅放方面"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:singleLine="true" />
@@ -112,13 +110,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="数        量"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     />
                 <EditText
                     android:layout_width="100dp"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textColor="#000"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -128,25 +126,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="10dp"/>
             </LinearLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:padding="10dp">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="确定"
-                    style="@style/but_com"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    style="@style/F2_back"/>
-            </RelativeLayout>
+            <include layout="@layout/button"/>
         </LinearLayout>
     </ScrollView>
 

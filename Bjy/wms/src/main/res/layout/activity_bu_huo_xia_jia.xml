@@ -26,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="源  库  区"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <Spinner
                     android:id="@+id/sp_bhxj"
@@ -43,14 +43,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="源  货  位"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height30"
+                    android:layout_height="@dimen/height"
                     android:text="AA111"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
                     android:singleLine="true"/>
             </LinearLayout>
@@ -63,13 +63,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="货  位  号"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height30"
+                    android:layout_height="@dimen/height"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:textColor="@color/color000"
                     android:layout_marginLeft="@dimen/left5"
                     android:singleLine="true"
@@ -84,14 +84,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品条码"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height30"
+                    android:layout_height="@dimen/height"
                     android:textColor="@color/color000"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
                     android:singleLine="true"
                     android:background="@drawable/bg_edittext"/>
@@ -105,14 +105,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品名称"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height30"
+                    android:layout_height="@dimen/height"
                     android:text="康师傅放方面"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
                     android:singleLine="true"/>
             </LinearLayout>
@@ -125,15 +125,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="已下数量"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height30"
+                    android:layout_height="@dimen/height"
                     android:text="12/25"
                     android:textColor="@color/colorRed"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
                     android:singleLine="true"/>
             </LinearLayout>
@@ -146,14 +146,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="实下数量"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="@dimen/width100"
-                    android:layout_height="@dimen/height30"
+                    android:layout_height="@dimen/height"
                     android:textColor="@color/color000"
                     android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
                     android:singleLine="true"
                     android:background="@drawable/bg_edittext"/>
@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
-                    android:textSize="@dimen/size25"
+                    android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left10"/>
             </LinearLayout>
             <include

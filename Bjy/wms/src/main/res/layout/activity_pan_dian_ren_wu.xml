@@ -6,8 +6,6 @@
     tools:context="app.wms.tow.PanDianRenWu"
     android:orientation="vertical">
     <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         layout="@layout/title"/>
 
     <LinearLayout
@@ -20,14 +18,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="货  位  号"
-            android:textSize="25sp"
+            android:textSize="@dimen/size"
             android:layout_gravity="center_vertical"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/height"
             android:text="A01001"
             android:gravity="center_vertical"
-            android:textSize="20sp"
+            android:textSize="@dimen/size"
             android:layout_marginLeft="5dp"
             android:singleLine="true"/>
 
@@ -42,14 +40,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="商品名称"
-            android:textSize="25sp"
+            android:textSize="@dimen/size"
             android:layout_gravity="center_vertical"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/height"
             android:text="康师傅放方面"
             android:gravity="center_vertical"
-            android:textSize="20sp"
+            android:textSize="@dimen/size"
             android:layout_marginLeft="5dp"
             android:singleLine="true"/>
 
@@ -64,14 +62,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="货        位"
-            android:textSize="25sp"
+            android:textSize="@dimen/size"
             android:layout_gravity="center_vertical"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/height"
             android:textColor="#000"
             android:gravity="center_vertical"
-            android:textSize="20sp"
+            android:textSize="@dimen/size"
             android:background="@drawable/bg_edittext"
             android:layout_marginLeft="5dp"
             android:singleLine="true"/>
@@ -87,14 +85,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="商品条码"
-            android:textSize="25sp"
+            android:textSize="@dimen/size"
             android:layout_gravity="center_vertical"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/height"
             android:textColor="#000"
             android:gravity="center_vertical"
-            android:textSize="20sp"
+            android:textSize="@dimen/size"
             android:background="@drawable/bg_edittext"
             android:layout_marginLeft="5dp"
             android:singleLine="true"/>
@@ -110,14 +108,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="数        量"
-            android:textSize="25sp"
+            android:textSize="@dimen/size"
             android:layout_gravity="center_vertical"/>
         <EditText
             android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/height"
             android:textColor="#000"
             android:gravity="center_vertical"
-            android:textSize="20sp"
+            android:textSize="@dimen/size"
             android:background="@drawable/bg_edittext"
             android:layout_marginLeft="5dp"
             android:singleLine="true"/>
@@ -125,14 +123,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="袋"
-            android:textSize="25sp"
+            android:textSize="@dimen/size"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
 
     <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         layout="@layout/button"/>
 
 

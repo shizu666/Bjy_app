@@ -27,13 +27,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="货    位"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     />
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textColor="#000"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -48,13 +48,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="国标码"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:textColor="#000"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -70,13 +70,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品名称："
-                    android:textSize="23sp"
+                    android:textSize="@dimen/size"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="康师傅冰红茶"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:gravity="center_vertical"/>
             </LinearLayout>
             <LinearLayout
@@ -88,13 +88,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="库  存  量："
-                    android:textSize="23sp"
+                    android:textSize="@dimen/size"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="20000"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:gravity="center_vertical"/>
             </LinearLayout>
             <LinearLayout
@@ -106,13 +106,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="销售单位："
-                    android:textSize="23sp"
+                    android:textSize="@dimen/size"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="包"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:gravity="center_vertical"/>
             </LinearLayout>
             <LinearLayout
@@ -124,13 +124,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="货  位  号："
-                    android:textSize="23sp"
+                    android:textSize="@dimen/size"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="A02-33-3-33"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:gravity="center_vertical"/>
             </LinearLayout>
             <LinearLayout
@@ -142,13 +142,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="生产日期："
-                    android:textSize="23sp"
+                    android:textSize="@dimen/size"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="2015-08-08"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:gravity="center_vertical"/>
             </LinearLayout>
             <LinearLayout
@@ -160,13 +160,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="记录条数："
-                    android:textSize="23sp"
+                    android:textSize="@dimen/size"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1/5"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size"
                     android:gravity="center_vertical"/>
             </LinearLayout>
             <RelativeLayout

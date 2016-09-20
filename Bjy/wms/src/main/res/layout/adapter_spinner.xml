@@ -7,7 +7,7 @@
         android:id="@+id/tv_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="@dimen/size"
         android:background="#ffffff"
         android:textColor="#000"
         android:layout_gravity="center_vertical"/>
