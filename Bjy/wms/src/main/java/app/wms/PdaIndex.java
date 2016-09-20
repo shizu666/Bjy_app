@@ -10,7 +10,9 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,6 +22,8 @@ public class PdaIndex extends AppCompatActivity {
 
     private GridView gl;
     private static Boolean isExit = false;
+    private Map<String,Object> map;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +35,55 @@ public class PdaIndex extends AppCompatActivity {
 
     private void initView() {
         gl = (GridView) findViewById(R.id.gl);
-        final List list = new ArrayList<>();
-        list.add("采购上架");
-        list.add("调拨上架");
-        list.add("返架上架");
-        list.add("消退上架");
-        list.add("拣货上架");
-        list.add("出库确认");
-        list.add("补货作业");
-        list.add("销退验收");
-        list.add("同区移库");
-        list.add("跨区移库");
-        list.add("盘点作业");
-        list.add("库存查询");
+        final List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.cai);
+        map.put("name","采购上架");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.diao);
+        map.put("name","调拨上架");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.fan);
+        map.put("name","返架上架");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.xiaotui);
+        map.put("name","销退上架");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.lian);
+        map.put("name","拣货下架");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.chu);
+        map.put("name","出库确认");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.bu);
+        map.put("name","补货作业");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.xiaotui);
+        map.put("name","销退验收");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.tong);
+        map.put("name","同区移库");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.kua);
+        map.put("name","跨区移库");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.pan);
+        map.put("name","盘点作业");
+        list.add(map);
+        map = new HashMap<String,Object>();
+        map.put("img",R.mipmap.ku);
+        map.put("name","库存查询");
+        list.add(map);
 
         GridLayoutAdapter adapter = new GridLayoutAdapter(list, getApplicationContext());
         gl.setAdapter(adapter);
