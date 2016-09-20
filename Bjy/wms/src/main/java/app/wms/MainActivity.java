@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity{
         butChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,OrderDetails.class);
-                startActivity(intent);
 
             }
         });
