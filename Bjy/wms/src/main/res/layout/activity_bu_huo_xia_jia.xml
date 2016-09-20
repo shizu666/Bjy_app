@@ -3,214 +3,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tow.OrderDetails"
+    tools:context="app.wms.tow.BuHuoXiaJia"
     android:orientation="vertical">
 
-    <include layout="@layout/title"/>
+    <include
+        layout="@layout/title"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="10dp">
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="源  库  区"
+                    android:textSize="@dimen/size25"
+                    android:layout_gravity="center_vertical"/>
+                <Spinner
+                    android:id="@+id/sp_bhxj"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </Spinner>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="源  货  位"
+                    android:textSize="@dimen/size25"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height30"
+                    android:text="AA111"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/size20"
+                    android:layout_marginLeft="@dimen/left5"
+                    android:singleLine="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="货  位  号"
+                    android:textSize="@dimen/size25"
+                    android:layout_gravity="center_vertical"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height30"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/size20"
+                    android:textColor="@color/color000"
+                    android:layout_marginLeft="@dimen/left5"
+                    android:singleLine="true"
+                    android:background="@drawable/bg_edittext"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品条码"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:textColor="#000"
+                    android:layout_height="@dimen/height30"
+                    android:textColor="@color/color000"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size20"
-                    android:background="@drawable/bg_edittext"
-                    android:layout_marginLeft="5dp"
-                    android:singleLine="true"/>
-
+                    android:layout_marginLeft="@dimen/left5"
+                    android:singleLine="true"
+                    android:background="@drawable/bg_edittext"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="10dp">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品名称"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:textColor="#fff"
-                    android:text="康师傅"
+                    android:layout_height="@dimen/height30"
+                    android:text="康师傅放方面"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size20"
-                    android:layout_marginLeft="5dp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="生产日期"
-                    android:textSize="25sp"
-                    android:layout_gravity="center_vertical"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:textColor="#000"
-                    android:text=""
-                    android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
-                    android:background="@drawable/bg_edittext"
-                    android:layout_marginLeft="5dp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="保  质  期"
-                    android:textSize="25sp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:textColor="#fff"
-                    android:text="180天"
-                    android:gravity="center_vertical"
-                    android:textSize="@dimen/size20"
-                    android:layout_marginLeft="5dp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="有效期至"
-                    android:textSize="25sp"
-                    android:layout_gravity="center_vertical"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:textColor="#000"
-                    android:textSize="@dimen/size20"
-                    android:background="@drawable/bg_edittext"
-                    android:layout_marginLeft="5dp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="货        位"
-                    android:textSize="25sp"
-                    android:layout_gravity="center_vertical"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:textColor="#000"
-                    android:textSize="@dimen/size20"
-                    android:background="@drawable/bg_edittext"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="@dimen/left5"
                     android:singleLine="true"/>
-
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="上架数量"
-                    android:textSize="25sp"
-                    android:padding="10dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1000/10000"
-                    android:textSize="@dimen/size20"
-                    android:layout_gravity="center_vertical"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:text="是否赠品"
-                    android:textSize="@dimen/size20"/>
-            </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="10dp">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="上架数量"
-                    android:textSize="25sp"
+                    android:text="已下数量"
+                    android:textSize="@dimen/size25"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height30"
+                    android:text="12/25"
+                    android:textColor="@color/colorRed"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/size20"
+                    android:layout_marginLeft="@dimen/left5"
+                    android:singleLine="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="实下数量"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <EditText
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:textColor="#000"
-                    android:inputType="number"
+                    android:layout_width="@dimen/width100"
+                    android:layout_height="@dimen/height30"
+                    android:textColor="@color/color000"
+                    android:gravity="center_vertical"
                     android:textSize="@dimen/size20"
-                    android:background="@drawable/bg_edittext"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginLeft="@dimen/left5"
+                    android:singleLine="true"
+                    android:background="@drawable/bg_edittext"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
                     android:textSize="@dimen/size25"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"/>
-
+                    android:layout_marginLeft="@dimen/left10"/>
             </LinearLayout>
-
-            <include layout="@layout/button"/>
-
+            <include
+                layout="@layout/button"/>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

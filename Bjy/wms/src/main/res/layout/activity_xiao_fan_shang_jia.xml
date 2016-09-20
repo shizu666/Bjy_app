@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tow.OrderDetails"
+    tools:context="app.wms.tow.XiaoFanShangJia"
     android:orientation="vertical">
-
     <include layout="@layout/title"/>
 
     <ScrollView
@@ -26,7 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品条码"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品名称"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -71,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="生产日期"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -94,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="保  质  期"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -116,7 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="有效期至"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -137,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="货        位"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -159,7 +158,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="上架数量"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:padding="10dp"
                     android:layout_gravity="center_vertical"/>
                 <TextView
@@ -188,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="上架数量"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/size25"
                     android:layout_gravity="center_vertical"/>
                 <EditText
                     android:layout_width="100dp"
@@ -208,7 +207,7 @@
 
             </LinearLayout>
 
-            <include layout="@layout/button"/>
+            <include layout="@layout/button2"/>
 
         </LinearLayout>
     </ScrollView>

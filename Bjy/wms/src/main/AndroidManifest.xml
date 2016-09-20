@@ -25,7 +25,11 @@
         <activity android:name=".SameLibraryMove" />
         <activity android:name=".NoSamelibraryMove" />
         <activity android:name=".tow.XiaoTuiYanShou" />
-        <activity android:name=".tow.LianHuoXIaJia"></activity>
+        <activity android:name=".tow.LianHuoXIaJia" />
+        <activity android:name=".tow.PanDianRenWu" />
+        <activity android:name=".tow.BuHuoXiaJia" />
+        <activity android:name=".tow.BuHuoShangJia" />
+        <activity android:name=".tow.XiaoFanShangJia"></activity>
     </application>
 
 </manifest>
