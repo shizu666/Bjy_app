@@ -2,12 +2,16 @@ package app.wms;
 
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import app.wms.tool.HttpUtils;
 import app.wms.tow.OrderDetails;
 
 public class MainActivity extends AppCompatActivity{
@@ -39,6 +43,10 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        HttpUtils.httpGET("http://192.168.9.129:8080/wms-web/services/product/getAllSkuGbmMap/1",handler);
+
+
+
     }
 
     private void initView() {
@@ -48,6 +56,18 @@ public class MainActivity extends AppCompatActivity{
         butLanding = (Button) findViewById(R.id.butLanding);
     }
 
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.arg1 == 1) {
+                String result = (String) msg.obj;
+                Log.i("reulst",result);
+            }
+
+
+        }
+    };
 
 
 }

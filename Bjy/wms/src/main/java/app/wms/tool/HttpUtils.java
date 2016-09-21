@@ -1,6 +1,8 @@
 package app.wms.tool;
 
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
@@ -16,21 +18,29 @@ import java.net.URL;
 public class HttpUtils {
 
     //get请求
-    public static void httpGET(String ur){
-        try {
-            URL url = new URL(ur);
-            HttpURLConnection http = (HttpURLConnection) url.openConnection();
-            http.setDoInput(true);
-            http.setDoOutput(true);
-            http.setConnectTimeout(5000);
-            http.setRequestMethod("GET");
-            if(http.getResponseCode()==200){
-                String result = HttpUtils.InputStreamToString(http.getInputStream());
-                Log.i("result",result);
+    public static void httpGET(final String ur , final Handler handler){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(ur);
+                    HttpURLConnection http = (HttpURLConnection) url.openConnection();
+                    http.setDoInput(true);
+                    http.setDoOutput(true);
+                    http.setConnectTimeout(1000*10);
+                    http.setRequestMethod("GET");
+                    if(http.getResponseCode()==200){
+                        String result = HttpUtils.InputStreamToString(http.getInputStream());
+                        Message message = Message.obtain();
+                        message.arg1=1;
+                        message.obj = result;
+                        handler.sendMessage(message);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        }).start();
     }
 
 
