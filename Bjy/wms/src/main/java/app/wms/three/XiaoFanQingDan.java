@@ -53,7 +53,6 @@ public class XiaoFanQingDan extends AppCompatActivity {
         ListViewAdapter adapter = new ListViewAdapter(this,list);
         listView.setAdapter(adapter);
 
-       // HttpUtils.httpGET("http://www.192.168.9.129:8080/wms-web/carrier/getCarrierList?warehouseCode=1233");
 
     }
 
