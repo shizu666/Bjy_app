@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ScrollView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,18 +17,20 @@ import java.util.Objects;
 import app.wms.R;
 import app.wms.adapter.ListViewAdapter;
 import app.wms.empty.XfQingDan;
+import app.wms.tool.HttpUtils;
 import app.wms.tow.XiaoFanShangJia;
 
 public class XiaoFanQingDan extends AppCompatActivity {
     private ListView listView;
     private List<XfQingDan> list;
     private XfQingDan xfQingDan;
-
+    private ScrollView scrollView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xiao_fan_qing_dan);
-
+        scrollView = (ScrollView) findViewById(R.id.sv_xfqd);
+        scrollView.smoothScrollTo(0,0);
         list = new ArrayList<XfQingDan>();
 
         xfQingDan = new XfQingDan();
@@ -46,10 +49,11 @@ public class XiaoFanQingDan extends AppCompatActivity {
             xfQingDan.setTv_la_zhiliang("好");
             list.add(xfQingDan);
         }
-//        listView = (ListView) findViewById(R.id.lv_xfqd);
-//        ListViewAdapter adapter = new ListViewAdapter(this,list);
-//        listView.setAdapter(adapter);
+        listView = (ListView) findViewById(R.id.mlv_xfqd);
+        ListViewAdapter adapter = new ListViewAdapter(this,list);
+        listView.setAdapter(adapter);
 
+       // HttpUtils.httpGET("http://www.192.168.9.129:8080/wms-web/carrier/getCarrierList?warehouseCode=1233");
 
     }
 

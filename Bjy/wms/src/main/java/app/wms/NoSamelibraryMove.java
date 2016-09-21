@@ -1,6 +1,7 @@
 package app.wms;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +10,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import app.wms.three.KuaYiKuQingDan;
+
 public class NoSamelibraryMove extends AppCompatActivity implements View.OnClickListener {
     private TextView tv_nslm_xiajia , tv_nslm_shangjia;
     private LinearLayout ll_nslm_shang ,ll_nslm_xia;
-    private Button but_nslm_dsj;
+    private Button but_nslm_dsj , but_nslm_confirm ,but_nslm_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,12 +25,15 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
         ll_nslm_shang = (LinearLayout) findViewById(R.id.ll_nslm_shang);
         ll_nslm_xia = (LinearLayout) findViewById(R.id.ll_nslm_xia);
         but_nslm_dsj = (Button) findViewById(R.id.but_nslm_dsj);
+        but_nslm_confirm = (Button) findViewById(R.id.but_nslm_confirm);
+        but_nslm_back = (Button) findViewById(R.id.but_nslm_back);
 
         tv_nslm_shangjia.setBackgroundColor(Color.parseColor("#cccccc"));
 
         //移库上下架点击事件
         tv_nslm_xiajia.setOnClickListener(this);
         tv_nslm_shangjia.setOnClickListener(this);
+        but_nslm_dsj.setOnClickListener(this);
     }
 
     @Override
@@ -46,6 +52,10 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                 but_nslm_dsj.setVisibility(View.VISIBLE);
                 tv_nslm_xiajia.setBackgroundColor(Color.parseColor("#cccccc"));
                 tv_nslm_shangjia.setBackgroundColor(Color.parseColor("#ffffff"));
+                break;
+            case R.id.but_nslm_dsj://移库待上架清单
+                Intent intent = new Intent(this, KuaYiKuQingDan.class);
+                startActivity(intent);
                 break;
         }
     }

@@ -123,6 +123,7 @@
                     android:text="确认"
                     style="@style/but_com"/>
                 <Button
+                    android:id="@+id/but_sr_qingdan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

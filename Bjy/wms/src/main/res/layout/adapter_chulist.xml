@@ -12,60 +12,39 @@
             android:layout_height="match_parent"
             android:background="#000"/>
         <TextView
-            android:id="@+id/tv_qd_c1"
+            android:id="@+id/tv_qd_ck1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="商品编号"
+            android:text="序号"
             style="@style/table"/>
         <TextView
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#000"/>
         <TextView
-            android:id="@+id/tv_qd_c2"
+            android:id="@+id/tv_qd_ck2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="哈哈"
+            android:text="订单号"
             style="@style/table"/>
         <TextView
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#000"/>
         <TextView
-            android:id="@+id/tv_qd_c3"
+            android:id="@+id/tv_qd_ck3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="哈哈"
+            android:text="操作"
+            android:textColor="#3333FF"
             style="@style/table"/>
         <TextView
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#000"/>
-        <TextView
-            android:id="@+id/tv_qd_c4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="哈哈"
-            style="@style/table"/>
-        <TextView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#000"/>
-        <TextView
-            android:id="@+id/tv_qd_c5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="huhuhuhu"
-            style="@style/table"/>
-        <TextView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#000"/>
-
     </LinearLayout>
+
 </RelativeLayout>

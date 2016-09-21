@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.wms.three.XiaoFanQingDan"
+    tools:context="app.wms.three.ChuKuQingDan"
     android:orientation="vertical">
-    <include layout="@layout/title"/>
+
+    <include layout="@layout/title" />
     <ScrollView
-        android:id="@+id/sv_xfqd"
+        android:id="@+id/sv_ckqd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -16,11 +17,12 @@
             android:orientation="vertical">
 
             <app.wms.view.MyListView
-                android:id="@+id/mlv_xfqd"
+                android:id="@+id/mlv_ckqd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:divider="#000"
-                android:dividerHeight="1dp"
+                android:dividerHeight="2dp"
+                android:focusable="false"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
@@ -41,7 +43,4 @@
         </LinearLayout>
 
     </ScrollView>
-
-
-
 </LinearLayout>
