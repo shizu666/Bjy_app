@@ -31,7 +31,7 @@
         <activity android:name=".tow.BuHuoShangJia" />
         <activity android:name=".tow.XiaoFanShangJia" />
         <activity android:name=".three.XiaoFanQingDan" />
-        <activity android:name=".three.KuYiKuQingDan" />
+        <activity android:name=".three.KuaYiKuQingDan" />
         <activity android:name=".three.ChuKuQingDan" />
         <activity android:name=".three.BuHuoQingDan"></activity>
     </application>
