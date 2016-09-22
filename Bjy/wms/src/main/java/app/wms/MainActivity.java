@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import app.wms.three.BuHuoQingDan;
 import app.wms.tool.HttpUtils;
 import app.wms.tow.OrderDetails;
 
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity{
         butChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, BuHuoQingDan.class);
+                startActivity(intent);
             }
         });
 

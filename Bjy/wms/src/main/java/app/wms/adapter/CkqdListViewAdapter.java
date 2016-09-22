@@ -61,10 +61,10 @@ public class CkqdListViewAdapter extends BaseAdapter {
         }
         if(position==0){
             holder.tv_qd_caozuo.setTextColor(Color.parseColor("#000000"));
-        }else{
+        }/*else{
             holder.tv_qd_caozuo.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
             holder.tv_qd_caozuo.getPaint().setAntiAlias(true);
-        }
+        }*/
         holder.tv_qd_bianhao.setText(list.get(position).getTv_qd_bianhao());
         holder.tv_qd_dingdanhao.setText(list.get(position).getTv_qd_dingdanhao());
         holder.tv_qd_caozuo.setText(list.get(position).getTv_qd_caozuo());
