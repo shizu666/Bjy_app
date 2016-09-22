@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        HttpUtils.httpGET("http://192.168.9.129:8080/wms-web/services/product/getAllSkuGbmMap/1",handler);
+//        HttpUtils.httpClentGet("http://192.168.9.129:8080/wms-web/services/inboundcheck/getchecklistbyorderno/PO201609210001",handler);
 
 
 
@@ -63,8 +63,10 @@ public class MainActivity extends AppCompatActivity{
             if (msg.arg1 == 1) {
                 String result = (String) msg.obj;
                 Log.i("reulst",result);
+            }else if(msg.arg1 == 2){
+                String result = (String) msg.obj;
+                Log.i("result2",result);
             }
-
 
         }
     };
