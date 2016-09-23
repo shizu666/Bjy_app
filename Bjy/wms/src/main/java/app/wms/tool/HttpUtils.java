@@ -4,13 +4,6 @@ package app.wms.tool;
 import android.os.Handler;
 import android.os.Message;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +25,6 @@ public class HttpUtils {
                     URL url = new URL(ur);
                     HttpURLConnection http = (HttpURLConnection) url.openConnection();
                     http.setDoInput(true);
-                    http.setDoOutput(true);
                     http.setConnectTimeout(1000*10);
                     http.setRequestMethod("GET");
                     if(http.getResponseCode()==200){
@@ -40,33 +32,6 @@ public class HttpUtils {
                         Message message = Message.obtain();
                         message.arg1=1;
                         message.obj = result;
-                        handler.sendMessage(message);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
-    public static void httpClentGet(final String url,final Handler handler){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    HttpClient httpClient = new DefaultHttpClient();
-                    HttpGet get = new HttpGet();
-                    get.setURI(new URI(url));
-                    HttpResponse httpResponse = httpClient.execute(get);
-                    StatusLine statusLine = httpResponse.getStatusLine();
-                    int code = statusLine.getStatusCode();
-                    if(code==200){
-                        HttpEntity entity = httpResponse.getEntity();
-                        InputStream is = entity.getContent();
-                        String rusult = HttpUtils.InputStreamToString(is);
-                        Message message = Message.obtain();
-                        message.obj = rusult;
-                        message.arg1 = 2;
                         handler.sendMessage(message);
                     }
                 } catch (Exception e) {

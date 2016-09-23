@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import app.wms.empty.HttpApi;
 import app.wms.three.BuHuoQingDan;
 import app.wms.tool.HttpUtils;
 import app.wms.tow.OrderDetails;
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-//        HttpUtils.httpClentGet("http://192.168.9.129:8080/wms-web/services/inboundcheck/getchecklistbyorderno/PO201609210001",handler);
+        String url = "http://192.168.9.136:8080/"+HttpApi.requestHead+HttpApi.getchecklistbyorderno+"PO201609230003"+HttpApi.baseWarehouseCode+"sh001";
+        HttpUtils.httpGET(url,handler);
 
 
 
