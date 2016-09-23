@@ -14,6 +14,9 @@ public class HttpApi {
     public static final String  parems = "carrier/getCarrierList/";
     //根据采购单号获取信息
     public static final String getchecklistbyorderno = "inboundcheck/getchecklistbyorderno/";
+    //查询商品信息
+    public static final String getAllProducts = "product/getAllProducts";
+
 
 
 

@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        String url = "http://192.168.9.136:8080/"+HttpApi.requestHead+HttpApi.getchecklistbyorderno+"PO201609230003"+HttpApi.baseWarehouseCode+"sh001";
+        //String url = "http://192.168.9.136:8080/"+HttpApi.requestHead+HttpApi.getchecklistbyorderno+"PO201609230003"+HttpApi.baseWarehouseCode+"sh001";
+        String url = "http://192.168.9.136:8080/"+HttpApi.requestHead+HttpApi.getAllProducts;
         HttpUtils.httpGET(url,handler);
 
 
