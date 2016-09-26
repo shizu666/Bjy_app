@@ -29,6 +29,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_od_sku"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="#000"
@@ -52,6 +53,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tv_od_name"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="#fff"
@@ -74,6 +76,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_od_createDate"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="#000"
@@ -97,6 +100,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tv_od_self"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="#fff"
@@ -119,6 +123,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_od_youxiao"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="#000"
@@ -140,6 +145,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_od_huowei"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="#000"
@@ -163,13 +169,16 @@
                     android:padding="10dp"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tv_od_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1000/10000"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
 
                 <CheckBox
+                    android:id="@+id/cb_od_check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -191,6 +200,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_od_shangNum"
                     android:layout_width="100dp"
                     android:layout_height="@dimen/height"
                     android:textColor="#000"
@@ -199,9 +209,11 @@
                     android:background="@drawable/bg_edittext"
                     android:layout_marginLeft="5dp"/>
                 <TextView
+                    android:id="@+id/tv_od_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"/>

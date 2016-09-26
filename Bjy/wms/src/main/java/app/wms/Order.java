@@ -58,7 +58,7 @@ public class Order extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s!=null){
+                if(s!=null&&s.length()==14){
                     if(index==7){
                         Intent intent = new Intent(Order.this,XiaoTuiYanShou.class);
                         intent.putExtra("order",s.toString());
