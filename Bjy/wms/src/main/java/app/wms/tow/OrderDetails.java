@@ -20,6 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -193,8 +194,12 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
 
                 String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.addInbound;
 
-                HttpUtils.getPost(url,handler,params);
-
+                //HttpUtils.getPost(url,handler,params);
+                try {
+                    HttpUtils.post(url,params,handler);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
 

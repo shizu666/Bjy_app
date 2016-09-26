@@ -3,10 +3,12 @@ package app.wms.tool;
 
 import android.os.Handler;
 import android.os.Message;
-import android.system.Os;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -14,11 +16,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
-import java.net.URI;
 import java.net.URL;
 
 import app.wms.empty.HttpApi;
-import app.wms.empty.Product;
 
 /**
  * Created by zhou on 2016/9/21.
@@ -85,6 +85,38 @@ public class HttpUtils {
         }).start();
     }
 
+
+
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
+
+
+    public static void post(final String url,final String json ,final Handler handler) throws IOException {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OkHttpClient client = new OkHttpClient();
+                RequestBody body = RequestBody.create(JSON, json);
+                Request request = new Request.Builder()
+                        .url(url)
+                        .post(body)
+                        .build();
+                Response response = null;
+                try {
+                    response = client.newCall(request).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    Message message = Message.obtain();
+                    message.arg1 = 2;
+                    message.obj = response.body().string();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 
 
     public static String InputStreamToString(InputStream is){
