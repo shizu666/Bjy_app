@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,12 +21,12 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import app.wms.R;
 import app.wms.empty.HttpApi;
 import app.wms.empty.Product;
+import app.wms.tool.DateUtils;
 import app.wms.tool.HttpUtils;
 
 public class OrderDetails extends AppCompatActivity implements View.OnClickListener{
@@ -149,7 +148,22 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
 
             if(msg.arg1 == 2){
                 String result = (String) msg.obj;
-                Log.i("rsult",result);
+                try {
+                    JSONObject js = new JSONObject(result);
+                    String message = js.getString("message");
+                    if("正常".equals(message)){
+                        tv_od_name.setText("");
+                        tv_od_self.setText("");
+                        tv_od_num.setText("");
+                        tv_od_unit.setText("");
+                        et_od_createDate.setText("");
+                        et_od_youxiao.setText("");
+                        et_od_shangNum.setText("");
+                        et_od_huowei.setText("");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
@@ -182,7 +196,7 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
                 product.setWarehouseCode(HttpApi.code);
                 product.setOwnerCode(listProduct.get(productIndex).getOwnerCode());
                 product.setOperator("110");
-                product.setOperateTime(new Date());
+                product.setOperateTime(DateUtils.getCurrentDate());
                 product.setPurchaseOrderNo(listProduct.get(productIndex).getPurchaseOrderNo());
                 product.setSku(listProduct.get(productIndex).getSku());
                 product.setLocationCode(huowei);
@@ -194,16 +208,19 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
 
                 String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.addInbound;
 
-                //HttpUtils.getPost(url,handler,params);
                 try {
-                    HttpUtils.post(url,params,handler);
+                    HttpUtils.httpPost(url,params,handler);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
             }
-
                 break;
         }
+    }
+
+    //情况内容
+    private void cleanText(){
+
     }
 }

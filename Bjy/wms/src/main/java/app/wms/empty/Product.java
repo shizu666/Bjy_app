@@ -57,7 +57,7 @@ public class Product implements Serializable{
     /**操作人--目前统一 是编号，若增加姓名，则另增字段*/
     private String operator;
     /**操作时间*/
-    private Date operateTime;
+    private String operateTime;
     /**生产日期*/
     private String produceDate;
 
@@ -238,11 +238,11 @@ public class Product implements Serializable{
         this.operator = operator;
     }
 
-    public Date getOperateTime() {
+    public String getOperateTime() {
         return operateTime;
     }
 
-    public void setOperateTime(Date operateTime) {
+    public void setOperateTime(String operateTime) {
         this.operateTime = operateTime;
     }
 

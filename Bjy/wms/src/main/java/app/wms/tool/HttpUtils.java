@@ -25,6 +25,8 @@ import app.wms.empty.HttpApi;
  */
 public class HttpUtils {
 
+    public static OkHttpClient  client = new OkHttpClient();
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     //get请求
     public static void httpGET(final String ur , final Handler handler){
         new Thread(new Runnable() {
@@ -65,6 +67,7 @@ public class HttpUtils {
                     http.setRequestProperty("Content-Length", params.length()+"");
                     http.setRequestProperty("Cache-Control", "max-age=0");
                     http.setRequestProperty("Origin", HttpApi.Ip);
+                    http.setRequestProperty("User-Agent", "android");
 
                     OutputStream os = http.getOutputStream();
                     PrintWriter pw = new PrintWriter(os);
@@ -87,17 +90,14 @@ public class HttpUtils {
 
 
 
-    public static final MediaType JSON
-            = MediaType.parse("application/json; charset=utf-8");
 
-
-    public static void post(final String url,final String json ,final Handler handler) throws IOException {
+    public static void httpPost(final String url,final String json ,final Handler handler) throws IOException {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                OkHttpClient client = new OkHttpClient();
                 RequestBody body = RequestBody.create(JSON, json);
                 Request request = new Request.Builder()
+                        .header("User-Agent", "android")
                         .url(url)
                         .post(body)
                         .build();
@@ -111,7 +111,8 @@ public class HttpUtils {
                     Message message = Message.obtain();
                     message.arg1 = 2;
                     message.obj = response.body().string();
-                } catch (IOException e) {
+                    handler.sendMessage(message);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
