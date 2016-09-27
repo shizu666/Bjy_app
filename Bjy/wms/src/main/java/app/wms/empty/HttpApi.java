@@ -30,6 +30,11 @@ public class HttpApi {
     //保存调拨上架商品信息
     public static final String saveinboundonshelf = "inboundonshelf/saveinboundonshelf";
 
+    //拣货下架订单查询
+    public static final String getOrderInfo = "offshelf/getOrderInfo/";
+    //保存拣货下架商品信息
+    public static final String doSubmit = "offshelf/doSubmit";
+
 
     //查询商品信息
     public static final String getAllProducts = "product/getAllProducts";

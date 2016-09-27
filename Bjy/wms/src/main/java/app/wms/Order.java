@@ -22,7 +22,7 @@ import app.wms.empty.HttpApi;
 import app.wms.tool.HttpUtils;
 import app.wms.tool.Json;
 import app.wms.tow.BuHuoXiaJia;
-import app.wms.tow.LianHuoXIaJia;
+import app.wms.tow.JianHuoXIaJia;
 import app.wms.tow.OrderDetails;
 import app.wms.tow.PanDianRenWu;
 import app.wms.tow.XiaoFanShangJia;
@@ -47,7 +47,7 @@ public class Order extends AppCompatActivity {
         list.add("调拨上架");
         list.add("返架上架");
         list.add("消退上架");
-        list.add("拣货上架");
+        list.add("拣货下架");
         list.add("出库确认");
         list.add("补货作业");
         list.add("销退验收");
@@ -69,15 +69,16 @@ public class Order extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s!=null&&s.length()==14){
+                if(s!=null){
+                    dingdan = s.toString();
                     if(index==7){
                         Intent intent = new Intent(Order.this,XiaoTuiYanShou.class);
                         intent.putExtra("order",s.toString());
                         startActivity(intent);
-                    }else if(index==4){
-                        Intent intent = new Intent(Order.this,LianHuoXIaJia.class);
-                        intent.putExtra("order",s.toString());
-                        startActivity(intent);
+                    }else if(index==4&&s.length()==4){
+                        String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getOrderInfo+s+HttpApi.baseWarehouseCode+HttpApi.code;
+                        HttpUtils.httpGET(url,handler);
+
                     }else if(index==10){
                         Intent intent = new Intent(Order.this,PanDianRenWu.class);
                         intent.putExtra("order",s.toString());
@@ -93,8 +94,7 @@ public class Order extends AppCompatActivity {
                         bd.putInt("index",index);
                         intent.putExtras(bd);*/
                         startActivity(intent);
-                    }else{
-                        dingdan = s.toString();
+                    }else if(index==0&&s.length()==14){
                         if(index==0){
                             String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getPrePurchaseProduct+s+HttpApi.baseWarehouseCode+HttpApi.code;
                             HttpUtils.httpGET(url,handler);
@@ -136,6 +136,22 @@ public class Order extends AppCompatActivity {
                             bd.putCharSequence("order",dingdan);
                             bd.putInt("index",index);
                             intent.putExtras(bd);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(Order.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            if(index == 4){
+                if(msg.arg1 == 1){
+                    try {
+                        JSONObject jsonObject = Json.getObject((String) msg.obj);
+                        if(jsonObject.getInt("code")==200){
+                            Intent intent = new Intent(Order.this,JianHuoXIaJia.class);
+                            intent.putExtra("order",dingdan);
                             startActivity(intent);
                         }else{
                             Toast.makeText(Order.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();

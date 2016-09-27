@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.wms.tow.LianHuoXIaJia"
+    tools:context="app.wms.tow.JianHuoXIaJia"
     android:orientation="vertical">
 
     <include
@@ -27,15 +27,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="巷道号"
+                    android:text="巷  道  号"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical" />
                 <TextView
+                    android:id="@+id/tv_jhxj_hao"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:text="A01-03"
                     android:textSize="@dimen/size"
+                    android:textColor="#fff"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"/>
             </LinearLayout>
@@ -51,10 +52,11 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical" />
                 <TextView
+                    android:id="@+id/tv_jhxj_huowei"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:text="A01-03"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"/>
@@ -71,6 +73,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical" />
                 <EditText
+                    android:id="@+id/et_jhxj_shixiahuowei"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
@@ -91,10 +94,11 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical" />
                 <TextView
+                    android:id="@+id/tv_jhxj_sku"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:text="A01-"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"/>
@@ -111,10 +115,11 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical" />
                 <TextView
+                    android:id="@+id/tv_jhxj_yingnum"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:text="A01-03"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"/>
@@ -130,11 +135,14 @@
                     android:text="已下数量"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical" />
+
                 <TextView
+                    android:id="@+id/tv_jhxj_yixianum"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:text="12/50"
+                    android:text="0/0"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"/>
@@ -151,17 +159,21 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical" />
                 <EditText
+                    android:id="@+id/et_jhxj_shixianum"
                     android:layout_width="100dp"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
                     android:textColor="#000"
                     android:textSize="@dimen/size"
                     android:gravity="center_vertical"
-                    android:background="@drawable/bg_edittext"/>
+                    android:background="@drawable/bg_edittext"
+                    android:inputType="number"/>
                 <TextView
+                    android:id="@+id/tv_jhxj_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="10dp"/>
             </LinearLayout>
