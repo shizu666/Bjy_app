@@ -62,9 +62,13 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
         String order = bundle.getCharSequence("order").toString();
         int index = bundle.getInt("index");
         tv_order_name.setText(list.get(index)+"("+order+")");
+        if(index==0){
+            String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getPrePurchaseProduct+order+HttpApi.baseWarehouseCode+HttpApi.code;
+            HttpUtils.httpGET(url,handler);
+        }else if(index==1){
+            cb_od_check.setVisibility(View.GONE);//赠品标识隐藏
+        }
 
-        String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getPrePurchaseProduct+order+HttpApi.baseWarehouseCode+HttpApi.code;
-        HttpUtils.httpGET(url,handler);
 
 
     }
@@ -154,12 +158,15 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
                     if("正常".equals(message)){
                         tv_od_name.setText("");
                         tv_od_self.setText("");
-                        tv_od_num.setText("");
+                        tv_od_num.setText("0/0");
                         tv_od_unit.setText("");
                         et_od_createDate.setText("");
                         et_od_youxiao.setText("");
                         et_od_shangNum.setText("");
                         et_od_huowei.setText("");
+                        et_od_sku.setText("");
+                    }else{
+                        Toast.makeText(OrderDetails.this,message,Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -169,6 +176,7 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
         }
     };
 
+    //显示商品名称等信息
     private void upView(int i){
         tv_od_name.setText(listProduct.get(i).getName());
         tv_od_self.setText(listProduct.get(i).getSelfLife()+"天");
@@ -219,8 +227,4 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //情况内容
-    private void cleanText(){
-
-    }
 }
