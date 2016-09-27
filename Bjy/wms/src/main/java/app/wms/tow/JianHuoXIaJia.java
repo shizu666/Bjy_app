@@ -106,7 +106,6 @@ public class JianHuoXIaJia extends AppCompatActivity implements View.OnClickList
             super.handleMessage(msg);
             if(msg.arg1 == 1){
                 String result = (String) msg.obj;
-                Log.i("result",result);
                 try {
                     JSONArray ja = Json.getArray(result,"result");
                     for(int i = 0 ; i<ja.length() ; i++){
@@ -140,7 +139,6 @@ public class JianHuoXIaJia extends AppCompatActivity implements View.OnClickList
                         et_jhxj_shixianum.setText("");
                         et_jhxj_shixiahuowei.setText("");
                     }
-                    Log.i("jo",jo.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
