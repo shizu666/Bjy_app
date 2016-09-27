@@ -37,7 +37,8 @@
                     android:textSize="@dimen/size"
                     android:background="@drawable/bg_edittext"
                     android:layout_marginLeft="5dp"
-                    android:singleLine="true"/>
+                    android:singleLine="true"
+                    android:maxEms="6"/>
 
             </LinearLayout>
             <LinearLayout
@@ -57,7 +58,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="#fff"
-                    android:text="康师傅"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="5dp"/>
@@ -104,7 +104,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="#fff"
-                    android:text="180天"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="5dp"/>
@@ -172,7 +171,7 @@
                     android:id="@+id/tv_od_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1000/10000"
+                    android:text="0/0"
                     android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
