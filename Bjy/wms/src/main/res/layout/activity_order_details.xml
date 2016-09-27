@@ -177,14 +177,6 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
 
-                <CheckBox
-                    android:id="@+id/cb_od_check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:text="赠品"
-                    android:textSize="@dimen/size"/>
             </LinearLayout>
 
             <LinearLayout

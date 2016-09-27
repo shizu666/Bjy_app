@@ -1,6 +1,8 @@
 package app.wms;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -8,9 +10,17 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import app.wms.empty.HttpApi;
+import app.wms.tool.HttpUtils;
+import app.wms.tool.Json;
 import app.wms.tow.BuHuoXiaJia;
 import app.wms.tow.LianHuoXIaJia;
 import app.wms.tow.OrderDetails;
@@ -22,7 +32,8 @@ import app.wms.tow.XiaoTuiYanShou;
 public class Order extends AppCompatActivity {
     private TextView et_order_showReceipts ,tv_order_name;
     private Button but_order_back;
-
+    private int index;
+    private String dingdan ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +57,7 @@ public class Order extends AppCompatActivity {
         list.add("库存查询");
 
         Bundle bundle = this.getIntent().getExtras();
-        final int index = bundle.getInt("index");
+        index = bundle.getInt("index");
         tv_order_name.setText(list.get(index));
 
         //对单据号进行监听，有内容就自动跳转到订单详情页
@@ -83,12 +94,11 @@ public class Order extends AppCompatActivity {
                         intent.putExtras(bd);*/
                         startActivity(intent);
                     }else{
-                        Intent intent = new Intent(Order.this,OrderDetails.class);
-                        Bundle bd = new Bundle();
-                        bd.putCharSequence("order",s);
-                        bd.putInt("index",index);
-                        intent.putExtras(bd);
-                        startActivity(intent);
+                        dingdan = s.toString();
+                        if(index==0){
+                            String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getPrePurchaseProduct+s+HttpApi.baseWarehouseCode+HttpApi.code;
+                            HttpUtils.httpGET(url,handler);
+                        }
                     }
                 }
             }
@@ -111,6 +121,32 @@ public class Order extends AppCompatActivity {
     }
 
 
+    public Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(index == 0){
+                if(msg.arg1 == 1){
+                    String result = (String) msg.obj;
+                    try {
+                        JSONObject jsonObject = Json.getObject(result);
+                        if(jsonObject.getInt("code")==200){
+                            Intent intent = new Intent(Order.this,OrderDetails.class);
+                            Bundle bd = new Bundle();
+                            bd.putCharSequence("order",dingdan);
+                            bd.putInt("index",index);
+                            intent.putExtras(bd);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(Order.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    };
 
 
 }

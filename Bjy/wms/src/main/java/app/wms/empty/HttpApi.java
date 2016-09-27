@@ -22,8 +22,14 @@ public class HttpApi {
 
     //根据采购单号查询商品信息
     public static final String getPrePurchaseProduct ="inbound/getPrePurchaseProduct/";
-    //保存采购商品信息
+    //保存采购商品上架信息
     public static final String addInbound = "inbound/addInbound";
+
+    //调拨上架订单查询
+    public static final String getonshelflistbyorderno = "inboundonshelf/getonshelflistbyorderno/";
+    //保存调拨上架商品信息
+    public static final String saveinboundonshelf = "inboundonshelf/saveinboundonshelf";
+
 
     //查询商品信息
     public static final String getAllProducts = "product/getAllProducts";
