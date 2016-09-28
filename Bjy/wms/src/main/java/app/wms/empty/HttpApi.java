@@ -38,6 +38,13 @@ public class HttpApi {
     //货位查询商品
     public static final String getStockLocation = "stockLocation/getStockLocation";
 
+    //跨区移库任务信息
+    public static final String checkMoveTask = "moveTask/checkMoveTask";
+    //跨区移库上架
+    public static final String  diffMoveStockLocationOn = "stockLocation/diffMoveStockLocationOn";
+    //跨区移库下架
+    public static final String diffMoveStockLocationOff = "stockLocation/diffMoveStockLocationOff";
+
     //查询商品信息
     public static final String getAllProducts = "product/getAllProducts";
 

@@ -57,6 +57,7 @@
                         android:text="下架货位"
                         android:textSize="@dimen/size"/>
                     <EditText
+                        android:id="@+id/et_nslm_xiajiahuowei"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height"
                         android:textColor="#000"
@@ -76,6 +77,7 @@
                         android:text="商品条码"
                         android:textSize="@dimen/size"/>
                     <EditText
+                        android:id="@+id/et_nslm_xiajiasku"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height"
                         android:textColor="#000"
@@ -95,9 +97,10 @@
                         android:text="商品名称"
                         android:textSize="@dimen/size"/>
                     <TextView
+                        android:id="@+id/tv_nslm_xiajianame"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height"
-                        android:text="康师傅放方面"
+                        android:textColor="#fff"
                         android:textSize="@dimen/size"
                         android:gravity="center_vertical"
                         android:layout_marginLeft="10dp"/>
@@ -113,6 +116,7 @@
                         android:text="下架数量"
                         android:textSize="@dimen/size"/>
                     <EditText
+                        android:id="@+id/et_nslm_xianum"
                         android:layout_width="100dp"
                         android:layout_height="@dimen/height"
                         android:textColor="#000"
@@ -122,9 +126,11 @@
                         android:background="@drawable/bg_edittext"
                         android:layout_marginLeft="10dp"/>
                     <TextView
+                        android:id="@+id/tv_nslm_xiajiaunit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="袋"
+                        android:textColor="#fff"
                         android:textSize="@dimen/size"
                         android:layout_marginLeft="10dp"/>
                 </LinearLayout>
@@ -146,6 +152,7 @@
                         android:text="上架货位"
                         android:textSize="@dimen/size"/>
                     <EditText
+                        android:id="@+id/et_nslm_shangjiahuowei"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height"
                         android:textColor="#000"
@@ -165,6 +172,7 @@
                         android:text="商品条码"
                         android:textSize="@dimen/size"/>
                     <EditText
+                        android:id="@+id/et_nslm_shangjiasku"
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
                         android:textColor="#000"
@@ -184,9 +192,10 @@
                         android:text="商品名称"
                         android:textSize="@dimen/size"/>
                     <TextView
+                        android:id="@+id/tv_nslm_shangjianame"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height"
-                        android:text="康师傅放方面"
+                        android:textColor="#fff"
                         android:textSize="@dimen/size"
                         android:textStyle="bold"
                         android:gravity="center_vertical"
@@ -203,9 +212,10 @@
                         android:text="上架数量"
                         android:textSize="@dimen/size" />
                     <TextView
+                        android:id="@+id/tv_nslm_shangjianum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="40/100"
+                        android:textColor="#fff"
                         android:textSize="@dimen/size"
                         android:textStyle="bold"
                         android:layout_marginLeft="10dp"/>
@@ -222,6 +232,7 @@
                         android:text="数        量"
                         android:textSize="@dimen/size"/>
                     <EditText
+                        android:id="@+id/et_nslm_shangjiaplannum"
                         android:layout_width="100dp"
                         android:layout_height="@dimen/height"
                         android:textColor="#000"
@@ -231,9 +242,11 @@
                         android:background="@drawable/bg_edittext"
                         android:layout_marginLeft="10dp"/>
                     <TextView
+                        android:id="@+id/tv_nslm_shangjiaunit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="袋"
+                        android:textColor="#fff"
                         android:textSize="@dimen/size"
                         android:layout_marginLeft="10dp"/>
                 </LinearLayout>
