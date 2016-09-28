@@ -235,25 +235,29 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                     Log.i("rsiel",result);
                     try {
                         JSONObject jo = Json.getObject(result);
-                        JSONObject j = jo.getJSONObject("result");
-                        JSONArray ja = j.getJSONArray("moveTaskProductResponses");
-                        for (int i = 0 ; i < ja.length() ; i++ ){
-                            JSONObject joo = ja.getJSONObject(i);
-                            MoveTaskProductResponse mtr = new MoveTaskProductResponse();
-                            mtr.setSrcLocation(joo.getString("srcLocation"));//源货位
-                            mtr.setDestLocation(joo.getString("destLocation"));//目标货位
-                            mtr.setSku(joo.getString("sku"));
-                            mtr.setProductName(joo.getString("productName"));
-                            mtr.setProductUnit(joo.getString("productUnit"));
-                            mtr.setPlanNum(joo.getInt("planNum"));
-                            mtr.setActualNum(joo.getInt("actualNum"));
-                            mtr.setWarehouseCode(j.getString("warehouseCode"));
-                            mtr.setOwnerCode(j.getString("ownerCode"));
-                            mtr.setOperator(Others.getOperator());
-                            mtr.setTaskNo(j.getString("taskNo"));
-                            listResponse.add(mtr);
+                        if(jo.getInt("code")==200){
+                            JSONObject j = jo.getJSONObject("result");
+                            JSONArray ja = j.getJSONArray("moveTaskProductResponses");
+                            for (int i = 0 ; i < ja.length() ; i++ ){
+                                JSONObject joo = ja.getJSONObject(i);
+                                MoveTaskProductResponse mtr = new MoveTaskProductResponse();
+                                mtr.setSrcLocation(joo.getString("srcLocation"));//源货位
+                                mtr.setDestLocation(joo.getString("destLocation"));//目标货位
+                                mtr.setSku(joo.getString("sku"));
+                                mtr.setProductName(joo.getString("productName"));
+                                mtr.setProductUnit(joo.getString("productUnit"));
+                                mtr.setPlanNum(joo.getInt("planNum"));
+                                mtr.setActualNum(joo.getInt("actualNum"));
+                                mtr.setWarehouseCode(j.getString("warehouseCode"));
+                                mtr.setOwnerCode(j.getString("ownerCode"));
+                                mtr.setOperator(Others.getOperator());
+                                mtr.setTaskNo(j.getString("taskNo"));
+                                mtr.setBatchNo(joo.getString("batchNo"));
+                                listResponse.add(mtr);
+                            }
+                        }else{
+                            Toast.makeText(NoSamelibraryMove.this,jo.getString("message"),Toast.LENGTH_LONG).show();
                         }
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -320,6 +324,7 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                     slr.setOwnerCode(listResponse.get(productIndex).getOwnerCode());
                     slr.setValidNum(Integer.valueOf(et_nslm_shangjiaplannum.getText().toString()));
                     slr.setTaskNo(listResponse.get(productIndex).getTaskNo());
+                    slr.setBatchNo(listResponse.get(productIndex).getBatchNo());
                     Gson gson = new Gson();
                     String params = gson.toJson(slr);
                     String urlxia = HttpApi.Ip+HttpApi.requestHead+HttpApi.diffMoveStockLocationOn;
