@@ -51,6 +51,30 @@ public class StockLocationRequest {
     private String produceDate;
 
     private String unit;
+    /**
+     * 上架时任务单号
+     */
+    private String taskNo;
+    /**
+     * 操作人--目前统一 是编号，若增加姓名，则另增字段
+     */
+    private String operator;
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
+
+    public String getTaskNo() {
+        return taskNo;
+    }
+
+    public void setTaskNo(String taskNo) {
+        this.taskNo = taskNo;
+    }
 
     public String getName() {
         return name;

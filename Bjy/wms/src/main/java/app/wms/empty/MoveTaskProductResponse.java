@@ -55,6 +55,28 @@ public class MoveTaskProductResponse {
 
     /** 生产日期 */
     private Date produceDate;
+    /** 货主编号 */
+    private String ownerCode;
+    /**
+     * 操作人--目前统一 是编号，若增加姓名，则另增字段
+     */
+    private String operator;
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
+
+    public String getOwnerCode() {
+        return ownerCode;
+    }
+
+    public void setOwnerCode(String ownerCode) {
+        this.ownerCode = ownerCode;
+    }
 
     public Long getId() {
         return id;
