@@ -46,6 +46,35 @@ public class StockLocationRequest {
     private String updateUser;
     /** 有效标识 */
     private Integer yn;
+    private String name;
+
+    private String produceDate;
+
+    private String unit;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getProduceDate() {
+        return produceDate;
+    }
+
+    public void setProduceDate(String produceDate) {
+        this.produceDate = produceDate;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
 
     public Long getId() {
         return id;

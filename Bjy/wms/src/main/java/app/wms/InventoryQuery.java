@@ -11,8 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,16 +25,20 @@ import java.util.List;
 
 import app.wms.empty.HttpApi;
 import app.wms.empty.StockLocationRequest;
+import app.wms.tool.DateUtils;
 import app.wms.tool.HttpUtils;
+import app.wms.tool.Json;
 
 public class InventoryQuery extends AppCompatActivity implements View.OnClickListener {
     private TextView tv_order_name ,tv_iq_name ,tv_iq_num ,tv_iq_unit ,tv_iq_huoweihao,tv_iq_cereateDate ,tv_iq_tiaoshu;
     private EditText et_iq_huowei , et_iq_sku;
     private Button but_iq_up ,but_iq_next ,but_iq_back;
     private List<StockLocationRequest> list = new ArrayList<StockLocationRequest>();
-    private String localtionCode , sku;
+    private String localtionCode = null;
+    private String sku = null;
     private boolean localFlag = false ;
     private boolean skuFlag = false;
+    private int num = 0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +60,7 @@ public class InventoryQuery extends AppCompatActivity implements View.OnClickLis
                     localtionCode = s.toString();
                     localFlag = true;
                     if(skuFlag){
-                        InventoryQuery iq = new InventoryQuery();
-                        iq.httpRequest();
+                        httpRequest();
                     }
                 }else{
                     localFlag = false;
@@ -78,8 +86,7 @@ public class InventoryQuery extends AppCompatActivity implements View.OnClickLis
                     sku = s.toString();
                     skuFlag = true;
                     if(localFlag){
-                        InventoryQuery iq = new InventoryQuery();
-                        iq.httpRequest();
+                        httpRequest();
                     }
                 }else{
                     skuFlag = false;
@@ -94,7 +101,7 @@ public class InventoryQuery extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void initView() {
+    public void initView() {
         tv_order_name = (TextView) findViewById(R.id.tv_order_name);
         tv_iq_name = (TextView) findViewById(R.id.tv_iq_name);
         tv_iq_num = (TextView) findViewById(R.id.tv_iq_num);
@@ -136,11 +143,34 @@ public class InventoryQuery extends AppCompatActivity implements View.OnClickLis
             super.handleMessage(msg);
             if(msg.arg1 == 2){
                 String result = (String) msg.obj;
-                Log.i("result",result);
+                try {
+                    JSONArray ja = Json.getArray(result,"result");
+                    for(int i = 0 ; i <ja.length() ; i++ ){
+                        JSONObject jo = ja.getJSONObject(i);
+                        StockLocationRequest slr = new StockLocationRequest();
+                        slr.setName(jo.getString("name"));
+                        slr.setValidNum(jo.getInt("validNum"));
+                        slr.setUnit(jo.getString("unit"));
+                        slr.setLocationCode(localtionCode);
+                        slr.setProduceDate(DateUtils.getDateToString(jo.getLong("produceDate")));
+                        list.add(slr);
+                    }
+                    upView(0);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
     };
 
+    public void upView(int i){
+        tv_iq_name.setText(list.get(i).getName());
+        tv_iq_cereateDate.setText(list.get(i).getProduceDate());
+        tv_iq_unit.setText(list.get(i).getUnit());
+       // tv_iq_num.setText(list.get(i).getValidNum());
+        tv_iq_huoweihao.setText(list.get(i).getLocationCode());
+        tv_iq_tiaoshu.setText((i+1)+"/"+list.size());
+    }
 
     @Override
     public void onClick(View v) {
@@ -149,10 +179,27 @@ public class InventoryQuery extends AppCompatActivity implements View.OnClickLis
                 this.finish();
                 break;
             case R.id.but_iq_up:
+                if(num!=0){
+                    num--;
+                    upView(num);
+                    but_iq_up.setVisibility(View.VISIBLE);
+                    but_iq_next.setVisibility(View.VISIBLE);
+                }else{
+                    but_iq_up.setVisibility(View.GONE);
+                    Toast.makeText(this,"已经是第一条",Toast.LENGTH_LONG).show();
+                }
 
                 break;
             case R.id.but_iq_next:
-
+                if(num!=list.size()-1){
+                    num++;
+                    upView(num);
+                    but_iq_up.setVisibility(View.VISIBLE);
+                    but_iq_next.setVisibility(View.VISIBLE);
+                }else{
+                    but_iq_next.setVisibility(View.GONE);
+                    Toast.makeText(this,"显示完成",Toast.LENGTH_LONG).show();
+                }
                 break;
         }
 
