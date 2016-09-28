@@ -26,7 +26,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="货    位"
+                    android:text="货       位"
                     android:textSize="@dimen/size"
                     />
                 <EditText
@@ -48,11 +48,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="国标码"
+                    android:text="商品编码"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
-                    android:id="@+id/et_iq_guobiaoma"
+                    android:id="@+id/et_iq_sku"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
