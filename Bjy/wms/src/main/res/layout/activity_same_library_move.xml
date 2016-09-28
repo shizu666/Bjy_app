@@ -25,10 +25,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="原  货  位"
+                    android:text="源  货  位"
                     android:textSize="@dimen/size"
                     />
                 <EditText
+                    android:id="@+id/et_slm_yuanhuowei"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
@@ -50,6 +51,7 @@
                     android:textSize="@dimen/size"
                     />
                 <EditText
+                    android:id="@+id/et_slm_mudihuowei"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
@@ -71,6 +73,7 @@
                     android:textSize="@dimen/size"
                     />
                 <EditText
+                    android:id="@+id/et_slm_sku"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
@@ -92,12 +95,12 @@
                     android:textSize="@dimen/size"
                     />
                 <TextView
+                    android:id="@+id/tv_slm_name"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
-                    android:text="康师傅放方面"
                     android:textSize="@dimen/size"
-                    android:textStyle="bold"
+                    android:textColor="#fff"
                     android:gravity="center_vertical"
                     android:singleLine="true" />
             </LinearLayout>
@@ -113,6 +116,7 @@
                     android:textSize="@dimen/size"
                     />
                 <EditText
+                    android:id="@+id/et_slm_num"
                     android:layout_width="100dp"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
@@ -123,6 +127,7 @@
                     android:inputType="number"
                     android:background="@drawable/bg_edittext"/>
                 <TextView
+                    android:id="@+id/tv_slm_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
