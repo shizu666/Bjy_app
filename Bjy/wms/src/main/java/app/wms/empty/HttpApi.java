@@ -52,6 +52,13 @@ public class HttpApi {
     //补货上架
     public static final String doReplenishOn = "stockLocation/doReplenishOn";
 
+    //盘点任务获取
+    public static final String getInventoryTask = "inventory/getInventoryTask";
+    //盘点入库
+    public static final String addInventoryResult = "inventory/addInventoryResult";
+
+
+
     //查询商品信息
     public static final String getAllProducts = "product/getAllProducts";
 

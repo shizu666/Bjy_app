@@ -87,7 +87,7 @@ public class Order extends AppCompatActivity {
                         String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getOrderInfo+s+HttpApi.baseWarehouseCode+HttpApi.code;
                         HttpUtils.httpGET(url,handler);
 
-                    }else if(index==10){
+                    }else if(index==10&&s.length()==14){
                         Intent intent = new Intent(Order.this,PanDianRenWu.class);
                         intent.putExtra("order",s.toString());
                         startActivity(intent);
