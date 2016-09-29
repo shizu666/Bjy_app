@@ -232,7 +232,6 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
             //获取移库任务信息
                 if(msg.arg1 == 2){
                     String result = (String) msg.obj;
-                    Log.i("rsiel",result);
                     try {
                         JSONObject jo = Json.getObject(result);
                         if(jo.getInt("code")==200){
@@ -257,6 +256,7 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                             }
                         }else{
                             Toast.makeText(NoSamelibraryMove.this,jo.getString("message"),Toast.LENGTH_LONG).show();
+                            NoSamelibraryMove.this.finish();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -359,7 +359,6 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    Log.i("resi",result);
                 }
             }
             if(shangFlag){
@@ -379,7 +378,6 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    Log.i("resi",result);
                 }
             }
         }
