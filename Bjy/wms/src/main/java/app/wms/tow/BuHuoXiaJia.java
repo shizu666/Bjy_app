@@ -41,7 +41,8 @@ public class BuHuoXiaJia extends AppCompatActivity implements View.OnClickListen
     private List<MoveTaskProductResponse> listResponse = new ArrayList<MoveTaskProductResponse>();
     private int nu = 0;
     private String tackNo;
-    private String num;
+    private int num = 0;//获取下架数量
+    private int planNum = 0 ,actualOffNum = 0;//获取计划下架数量、已下架数量
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,6 +117,8 @@ public class BuHuoXiaJia extends AppCompatActivity implements View.OnClickListen
             listResponse.get(i).setActualOffNum(0);
         }
         tv_bhxj_num.setText(listResponse.get(i).getActualOffNum()+"/"+listResponse.get(i).getPlanNum());
+        planNum = listResponse.get(i).getPlanNum();
+        actualOffNum = listResponse.get(i).getActualOffNum();
         tv_bhxj_unit.setText(listResponse.get(i).getProductUnit());
     }
 
@@ -147,7 +150,7 @@ public class BuHuoXiaJia extends AppCompatActivity implements View.OnClickListen
             case R.id.but_confirm:
 
                 String local = et_bhxj_local.getText().toString();
-                num = et_bhxj_num.getText().toString();
+                num = Integer.valueOf(et_bhxj_num.getText().toString());
                 String sku = et_bhxj_sku.getText().toString();
                 StockLocationRequest slr = new StockLocationRequest();
                 slr.setBatchNo(listResponse.get(nu).getBatchNo());
@@ -176,18 +179,25 @@ public class BuHuoXiaJia extends AppCompatActivity implements View.OnClickListen
             super.handleMessage(msg);
             if(msg.arg1 == 2){
                 String result = (String) msg.obj;
-                Log.i("res",result);
                 try {
                     JSONObject jo = Json.getObject(result);
                     if(jo.getInt("code")==200){
-                        if((nu+1)!=listResponse.size()){
-                            nu++;
-                            upView(nu);
+                        if((num+actualOffNum)!=planNum){
+                            et_bhxj_local.setText("");
+                            et_bhxj_num.setText("");
+                            et_bhxj_sku.setText("");
+                            actualOffNum = num+actualOffNum;
+                            tv_bhxj_num.setText(actualOffNum+"/"+planNum);
                         }else{
-                            BuHuoXiaJia.this.finish();
-                            Intent intent = new Intent(BuHuoXiaJia.this,BuHuoShangJia.class);
-                            intent.putExtra("order",tackNo);
-                            startActivity(intent);
+                            if((nu+1)!=listResponse.size()){
+                                nu++;
+                                upView(nu);
+                            }else{
+                                BuHuoXiaJia.this.finish();
+                                Intent intent = new Intent(BuHuoXiaJia.this,BuHuoShangJia.class);
+                                intent.putExtra("order",tackNo);
+                                startActivity(intent);
+                            }
                         }
                     }else{
                         Toast.makeText(BuHuoXiaJia.this,jo.getString("message"),Toast.LENGTH_LONG).show();

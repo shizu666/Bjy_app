@@ -40,8 +40,9 @@ public class BuHuoShangJia extends AppCompatActivity implements View.OnClickList
     private Button but_com_confirm ,but_com_dsj ,but_com_back;
     private String tackNo;
     private List<MoveTaskProductResponse> listResponse = new ArrayList<MoveTaskProductResponse>();
-    private int i = 0;
-
+    private int i = 0;//判断上架产品坐标
+    private int num = 0;//获取上架数量
+    private int planNum = 0 ,actualNum = 0;//获取计划上架数量、已上架数量
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +115,8 @@ public class BuHuoShangJia extends AppCompatActivity implements View.OnClickList
         tv_bhsj_name.setText(listResponse.get(i).getProductName());
         tv_bhsj_num.setText(listResponse.get(i).getActualNum()+"/"+listResponse.get(i).getPlanNum());
         tv_bhsj_unit.setText(listResponse.get(i).getProductUnit());
+        actualNum = listResponse.get(i).getActualNum();
+        planNum = listResponse.get(i).getPlanNum();
     }
 
 
@@ -147,7 +150,7 @@ public class BuHuoShangJia extends AppCompatActivity implements View.OnClickList
             case R.id.but_com_confirm:
                 String local = et_bhsj_local.getText().toString();
                 String sku = et_bhsj_sku.getText().toString();
-                String num = et_bhsj_num.getText().toString();
+                num = Integer.valueOf(et_bhsj_num.getText().toString());
                 StockLocationRequest slr = new StockLocationRequest();
                 slr.setBatchNo(listResponse.get(i).getBatchNo());
                 slr.setLocationCode(local);
@@ -156,7 +159,7 @@ public class BuHuoShangJia extends AppCompatActivity implements View.OnClickList
                 slr.setTaskNo(listResponse.get(i).getTaskNo());
                 slr.setWarehouseCode(listResponse.get(i).getWarehouseCode());
                 slr.setOwnerCode(listResponse.get(i).getOwnerCode());
-                slr.setValidNum(Integer.valueOf(num));
+                slr.setValidNum(num);
                 Gson gson = Json.getGson();
                 String json = gson.toJson(slr);
                 String  url = HttpApi.Ip+HttpApi.requestHead+HttpApi.doReplenishOff;
@@ -182,11 +185,18 @@ public class BuHuoShangJia extends AppCompatActivity implements View.OnClickList
                 try {
                     JSONObject jo = Json.getObject(result);
                     if(jo.getInt("code")==200){
-                        if((i+1)!=listResponse.size()){
-                            i++;
-                            upView(i);
+                        if((num+actualNum)!=planNum){
+                            et_bhsj_local.setText("");
+                            et_bhsj_sku.setText("");
+                            actualNum = num+actualNum;
+                            et_bhsj_num.setText(actualNum+"/"+planNum);
                         }else{
-                            BuHuoShangJia.this.finish();
+                            if((i+1)!=listResponse.size()){
+                                i++;
+                                upView(i);
+                            }else{
+                                BuHuoShangJia.this.finish();
+                            }
                         }
                     }else{
                         Toast.makeText(BuHuoShangJia.this,jo.getString("message"),Toast.LENGTH_LONG).show();

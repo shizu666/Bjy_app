@@ -1,5 +1,8 @@
 package app.wms.tool;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 /**
  * Created by zhou on 2016/9/27.
  */
@@ -13,4 +16,20 @@ public class Others {
         String code = "admin";
         return code;
     }
+
+    //缓存数据
+    public static void saveShare(Context context, String key, String value , String user){
+        SharedPreferences shared=context.getSharedPreferences(user, 0);
+        SharedPreferences.Editor editor=shared.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public static String readShare(Context context,String key ,String user){
+        String result=null;
+        SharedPreferences shared=context.getSharedPreferences(user, 0);
+        result=shared.getString(key, "-1");
+        return result;
+    }
+
 }
