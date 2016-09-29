@@ -27,11 +27,15 @@
                     android:text="目的库区"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
-                <Spinner
-                    android:id="@+id/sp_bhsj"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </Spinner>
+                    android:layout_height="@dimen/height"
+                    android:text="拣货区"
+                    android:textColor="#fff"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/size"
+                    android:layout_marginLeft="@dimen/left5"
+                    android:singleLine="true"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,6 +49,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_bhsj_local"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:gravity="center_vertical"
@@ -66,6 +71,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_bhsj_sku"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="@color/color000"
@@ -87,9 +93,10 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tv_bhsj_name"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
-                    android:text="康师傅放方面"
+                    android:textColor="#fff"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
@@ -107,10 +114,11 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tv_bhsj_num"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
-                    android:text="12/25"
-                    android:textColor="@color/colorRed"
+                    android:text="0/0"
+                    android:textColor="#fff"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
@@ -128,6 +136,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_bhsj_num"
                     android:layout_width="@dimen/width100"
                     android:layout_height="@dimen/height"
                     android:textColor="@color/color000"
@@ -137,9 +146,11 @@
                     android:singleLine="true"
                     android:background="@drawable/bg_edittext"/>
                 <TextView
+                    android:id="@+id/tv_bhsj_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="袋"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left10"/>
             </LinearLayout>

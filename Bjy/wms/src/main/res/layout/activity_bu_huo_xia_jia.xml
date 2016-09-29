@@ -28,11 +28,15 @@
                     android:text="源  库  区"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
-                <Spinner
-                    android:id="@+id/sp_bhxj"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </Spinner>
+                    android:layout_height="@dimen/height"
+                    android:textColor="#fff"
+                    android:text="存货区"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/size"
+                    android:layout_marginLeft="@dimen/left5"
+                    android:singleLine="true"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,9 +50,10 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tv_bhxj_arclocal"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
-                    android:text="AA111"
+                    android:textColor="#fff"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
@@ -66,6 +71,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_bhxj_local"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:gravity="center_vertical"
@@ -86,7 +92,9 @@
                     android:text="商品条码"
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
+
                 <EditText
+                    android:id="@+id/et_bhxj_sku"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:textColor="@color/color000"
@@ -108,9 +116,10 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tv_bhxj_name"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
-                    android:text="康师傅放方面"
+                    android:textColor="#fff"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
@@ -128,10 +137,11 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tv_bhxj_num"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
-                    android:text="12/25"
-                    android:textColor="@color/colorRed"
+                    android:text="0/0"
+                    android:textColor="#fff"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left5"
@@ -149,6 +159,7 @@
                     android:textSize="@dimen/size"
                     android:layout_gravity="center_vertical"/>
                 <EditText
+                    android:id="@+id/et_bhxj_num"
                     android:layout_width="@dimen/width100"
                     android:layout_height="@dimen/height"
                     android:textColor="@color/color000"
@@ -158,8 +169,10 @@
                     android:singleLine="true"
                     android:background="@drawable/bg_edittext"/>
                 <TextView
+                    android:id="@+id/tv_bhxj_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#fff"
                     android:text="袋"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="@dimen/left10"/>

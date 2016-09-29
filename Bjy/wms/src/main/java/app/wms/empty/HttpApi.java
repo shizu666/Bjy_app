@@ -6,7 +6,7 @@ package app.wms.empty;
 
 public class HttpApi {
     //IP地址
-    public static final String Ip = "http://192.168.9.118:8080/";
+    public static final String Ip = "http://192.168.9.130:8080/";
 
     //仓库号
     public static final String code = "sh001";
@@ -44,6 +44,13 @@ public class HttpApi {
     public static final String  diffMoveStockLocationOn = "stockLocation/diffMoveStockLocationOn";
     //跨区移库下架
     public static final String diffMoveStockLocationOff = "stockLocation/diffMoveStockLocationOff";
+
+    //补货任务信息
+    public static final String checkAndGetMoveTask = "moveTask/checkAndGetMoveTask";
+    //补货下架
+    public static final String doReplenishOff = "stockLocation/doReplenishOff";
+    //补货上架
+    public static final String doReplenishOn = "stockLocation/doReplenishOn";
 
     //查询商品信息
     public static final String getAllProducts = "product/getAllProducts";

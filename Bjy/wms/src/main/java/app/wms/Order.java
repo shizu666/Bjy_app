@@ -7,20 +7,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import app.wms.empty.HttpApi;
+import app.wms.empty.MoveTaskProductResponse;
+import app.wms.empty.MoveTaskRequest;
 import app.wms.tool.HttpUtils;
 import app.wms.tool.Json;
+import app.wms.tool.Others;
 import app.wms.tow.BuHuoXiaJia;
 import app.wms.tow.JianHuoXIaJia;
 import app.wms.tow.OrderDetails;
@@ -75,7 +83,7 @@ public class Order extends AppCompatActivity {
                         Intent intent = new Intent(Order.this,XiaoTuiYanShou.class);
                         intent.putExtra("order",s.toString());
                         startActivity(intent);
-                    }else if(index==4&&s.length()==4){
+                    }else if(index==4&&s.length()==12){
                         String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getOrderInfo+s+HttpApi.baseWarehouseCode+HttpApi.code;
                         HttpUtils.httpGET(url,handler);
 
@@ -83,10 +91,20 @@ public class Order extends AppCompatActivity {
                         Intent intent = new Intent(Order.this,PanDianRenWu.class);
                         intent.putExtra("order",s.toString());
                         startActivity(intent);
-                    }else if(index==6){
-                        Intent intent = new Intent(Order.this,BuHuoXiaJia.class);
-                        //intent.putExtra("order",s.toString());
-                        startActivity(intent);
+                    }else if(index==6&&s.length()==14){
+                        dingdan = s.toString();
+                        MoveTaskRequest mtr = new MoveTaskRequest();
+                        mtr.setTaskNo(s.toString());
+                        mtr.setOperator(Others.getOperator());
+                        mtr.setWarehouseCode(HttpApi.code);
+                        Gson gson = Json.getGson();
+                        String params = gson.toJson(mtr);
+                        String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.checkAndGetMoveTask;
+                        try {
+                            HttpUtils.httpPost(url,params,handler);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }else if(index==2||index==3){
                         Intent intent = new Intent(Order.this,XiaoFanShangJia.class);
                       /*  Bundle bd = new Bundle();
@@ -155,6 +173,23 @@ public class Order extends AppCompatActivity {
                             startActivity(intent);
                         }else{
                             Toast.makeText(Order.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            if(index == 6){
+                if(msg.arg1 == 2) {
+                    String result = (String) msg.obj;
+                    try {
+                        JSONObject jo = Json.getObject(result);
+                        if (jo.getInt("code") == 200) {
+                            Intent intent = new Intent(Order.this, BuHuoXiaJia.class);
+                            intent.putExtra("order", dingdan);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(Order.this, jo.getString("message"), Toast.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

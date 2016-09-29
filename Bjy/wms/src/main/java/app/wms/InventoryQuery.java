@@ -104,7 +104,7 @@ public class InventoryQuery extends AppCompatActivity implements View.OnClickLis
     public void initView() {
         tv_order_name = (TextView) findViewById(R.id.tv_order_name);
         tv_iq_name = (TextView) findViewById(R.id.tv_iq_name);
-        tv_iq_num = (TextView) findViewById(R.id.tv_iq_num);
+        tv_iq_num = (TextView) findViewById(R.id.tv_iq_nu);
         tv_iq_unit = (TextView) findViewById(R.id.tv_iq_unit);
         tv_iq_huoweihao = (TextView) findViewById(R.id.tv_iq_huoweihao);
         tv_iq_cereateDate = (TextView) findViewById(R.id.tv_iq_cereateDate);
@@ -155,6 +155,8 @@ public class InventoryQuery extends AppCompatActivity implements View.OnClickLis
                         slr.setProduceDate(DateUtils.getDateToString(jo.getLong("produceDate")));
                         list.add(slr);
                     }
+                    but_iq_up.setVisibility(View.VISIBLE);
+                    but_iq_next.setVisibility(View.VISIBLE);
                     upView(0);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -167,7 +169,7 @@ public class InventoryQuery extends AppCompatActivity implements View.OnClickLis
         tv_iq_name.setText(list.get(i).getName());
         tv_iq_cereateDate.setText(list.get(i).getProduceDate());
         tv_iq_unit.setText(list.get(i).getUnit());
-       // tv_iq_num.setText(list.get(i).getValidNum());
+        tv_iq_num.setText(String.valueOf(list.get(i).getValidNum()));
         tv_iq_huoweihao.setText(list.get(i).getLocationCode());
         tv_iq_tiaoshu.setText((i+1)+"/"+list.size());
     }

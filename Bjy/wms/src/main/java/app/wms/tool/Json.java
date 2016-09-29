@@ -1,5 +1,7 @@
 package app.wms.tool;
 
+import com.google.gson.Gson;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +11,8 @@ import org.json.JSONObject;
  */
 
 public class Json {
+
+    private static Gson gson;
 
     //获取json对象
     public static JSONObject getObject(String result) throws JSONException {
@@ -21,6 +25,14 @@ public class Json {
         JSONObject jsonObject = new JSONObject(result);
         JSONArray jsonArray = jsonObject.getJSONArray(array);
         return jsonArray;
+    }
+
+    //Gson单利模式
+    public static Gson getGson(){
+        if(gson==null){
+            gson = new Gson();
+        }
+        return gson;
     }
 
 }
