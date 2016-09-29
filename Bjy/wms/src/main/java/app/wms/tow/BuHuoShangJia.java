@@ -75,7 +75,6 @@ public class BuHuoShangJia extends AppCompatActivity implements View.OnClickList
             super.handleMessage(msg);
             if(msg.arg1 == 2){
                 String result = (String) msg.obj;
-                Log.i("result",result);
                 try {
                     JSONObject jo = Json.getObject(result);
                     JSONObject j = jo.getJSONObject("result");
