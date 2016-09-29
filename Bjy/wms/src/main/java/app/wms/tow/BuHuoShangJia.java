@@ -30,6 +30,7 @@ import app.wms.empty.HttpApi;
 import app.wms.empty.MoveTaskProductResponse;
 import app.wms.empty.MoveTaskRequest;
 import app.wms.empty.StockLocationRequest;
+import app.wms.three.BuHuoQingDan;
 import app.wms.tool.HttpUtils;
 import app.wms.tool.Json;
 import app.wms.tool.Others;
@@ -170,7 +171,9 @@ public class BuHuoShangJia extends AppCompatActivity implements View.OnClickList
                 }
                 break;
             case R.id.but_com_dsj:
-
+                Intent intent = new Intent(this, BuHuoQingDan.class);
+                intent.putExtra("order",tackNo);
+                startActivity(intent);
                 break;
         }
 
