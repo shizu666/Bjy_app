@@ -83,7 +83,7 @@ public class Order extends AppCompatActivity {
                         Intent intent = new Intent(Order.this,XiaoTuiYanShou.class);
                         intent.putExtra("order",s.toString());
                         startActivity(intent);
-                    }else if(index==4&&s.length()==12){
+                    }else if(index==4&&s.length()==13){
                         String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getOrderInfo+s+HttpApi.baseWarehouseCode+HttpApi.code;
                         HttpUtils.httpGET(url,handler);
 
