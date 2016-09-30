@@ -5,6 +5,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -35,12 +37,14 @@ public class BuHuoQingDan extends AppCompatActivity {
     private List<MyQingDan> list = new ArrayList<MyQingDan>();;
     private ScrollView scrollView;
     private MyListView myListView;
+    private Button but_bhqd_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bu_huo_qing_dan);
         tv_order_name = (TextView) findViewById(R.id.tv_order_name);
+        but_bhqd_back = (Button) findViewById(R.id.but_bhqd_back);
         myListView = (MyListView) findViewById(R.id.mlv_bhqd);
         scrollView = (ScrollView) findViewById(R.id.sv_bhqd);
         scrollView.smoothScrollTo(0,0);
@@ -58,6 +62,13 @@ public class BuHuoQingDan extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        but_bhqd_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BuHuoQingDan.this.finish();
+            }
+        });
 
 
     }

@@ -91,7 +91,7 @@ public class Order extends AppCompatActivity {
                         Intent intent = new Intent(Order.this,PanDianRenWu.class);
                         intent.putExtra("order",s.toString());
                         startActivity(intent);
-                    }else if(index==6&&s.length()==14){//补货作业
+                    }else if(index==6&&s.length()==15){//补货作业
                         dingdan = s.toString();
                         MoveTaskRequest mtr = new MoveTaskRequest();
                         mtr.setTaskNo(s.toString());

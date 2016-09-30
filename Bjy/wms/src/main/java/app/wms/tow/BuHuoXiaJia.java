@@ -81,17 +81,20 @@ public class BuHuoXiaJia extends AppCompatActivity implements View.OnClickListen
                     for (int i = 0 ; i < ja.length() ; i++ ){
                         JSONObject joo = ja.getJSONObject(i);
                         MoveTaskProductResponse mtr = new MoveTaskProductResponse();
-                        mtr.setSrcLocation(joo.getString("srcLocation"));//源货位
-                        mtr.setDestLocation(joo.getString("destLocation"));//目标货位
-                        mtr.setSku(joo.getString("sku"));
-                        mtr.setProductName(joo.getString("productName"));
-                        mtr.setProductUnit(joo.getString("productUnit"));
                         mtr.setPlanNum(joo.getInt("planNum"));
                         if(String.valueOf(joo.getInt("actualOffNum"))==null){
                             mtr.setActualOffNum(0);
                         }else{
                             mtr.setActualOffNum(joo.getInt("actualOffNum"));
                         }
+                        if(mtr.getPlanNum()==mtr.getActualOffNum()){
+                            continue;
+                        }
+                        mtr.setSrcLocation(joo.getString("srcLocation"));//源货位
+                        mtr.setDestLocation(joo.getString("destLocation"));//目标货位
+                        mtr.setSku(joo.getString("sku"));
+                        mtr.setProductName(joo.getString("productName"));
+                        mtr.setProductUnit(joo.getString("productUnit"));
                         mtr.setWarehouseCode(j.getString("warehouseCode"));
                         mtr.setOwnerCode(j.getString("ownerCode"));
                         mtr.setOperator(Others.getOperator());
@@ -99,7 +102,14 @@ public class BuHuoXiaJia extends AppCompatActivity implements View.OnClickListen
                         mtr.setBatchNo(joo.getString("batchNo"));
                         listResponse.add(mtr);
                     }
-                    upView(0);
+                    if(listResponse.size()!=0){
+                        upView(0);
+                    }else{
+                        BuHuoXiaJia.this.finish();
+                        Intent intent = new Intent(BuHuoXiaJia.this,BuHuoShangJia.class);
+                        intent.putExtra("order",tackNo);
+                        startActivity(intent);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -181,7 +191,7 @@ public class BuHuoXiaJia extends AppCompatActivity implements View.OnClickListen
                 try {
                     JSONObject jo = Json.getObject(result);
                     if(jo.getInt("code")==200){
-                        if((num+actualOffNum)!=planNum){
+                        if((num+actualOffNum)!=planNum){//判断本次下架数量是否等于计划数量
                             et_bhxj_local.setText("");
                             et_bhxj_num.setText("");
                             et_bhxj_sku.setText("");
