@@ -29,6 +29,7 @@
                     android:textSize="@dimen/size"
                     />
                 <EditText
+                    android:id="@+id/et_sr_chengyunshang"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
@@ -50,6 +51,7 @@
                     android:textSize="@dimen/size"
                     />
                 <EditText
+                    android:id="@+id/et_sr_order"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
                     android:layout_marginLeft="5dp"
@@ -70,9 +72,10 @@
                     android:text="箱    号"
                     android:textSize="@dimen/size"/>
                 <TextView
+                    android:id="@+id/tv_sr_xianghao"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
-                    android:text="X00000000"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="10dp"/>
             </LinearLayout>
@@ -87,9 +90,10 @@
                     android:text="订单数"
                     android:textSize="@dimen/size"/>
                 <TextView
+                    android:id="@+id/tv_sr_ordernum"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
-                    android:text="888"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="10dp"/>
             </LinearLayout>
@@ -104,9 +108,10 @@
                     android:text="目的地"
                     android:textSize="@dimen/size"/>
                 <TextView
+                    android:id="@+id/tv_sr_mudidi"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height"
-                    android:text="北京马兰山"
+                    android:textColor="#fff"
                     android:textSize="@dimen/size"
                     android:layout_marginLeft="10dp"/>
             </LinearLayout>
@@ -131,6 +136,7 @@
                     android:text="查看明细"
                     style="@style/but_com"/>
                 <Button
+                    android:id="@+id/but_sr_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"

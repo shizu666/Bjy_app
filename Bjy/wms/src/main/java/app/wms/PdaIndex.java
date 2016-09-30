@@ -91,16 +91,16 @@ public class PdaIndex extends AppCompatActivity {
         gl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==(list.size()-1)){
+                if(position==(list.size()-1)){//库存查询
                     Intent intent = new Intent(PdaIndex.this,InventoryQuery.class);
                     startActivity(intent);
-                }else if(position==(list.size()-7)){
+                }else if(position==(list.size()-7)){//出库确认
                     Intent intent = new Intent(PdaIndex.this,StockRemoval.class);
                     startActivity(intent);
-                }else if(position==8){
+                }else if(position==8){//同区移库
                     Intent intent = new Intent(PdaIndex.this,SameLibraryMove.class);
                     startActivity(intent);
-                }else if(position==9){
+                }else if(position==9){//跨区移库
                     Intent intent = new Intent(PdaIndex.this,NoSamelibraryMove.class);
                     startActivity(intent);
                 }else{

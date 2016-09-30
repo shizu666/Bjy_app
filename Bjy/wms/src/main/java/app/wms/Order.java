@@ -79,19 +79,19 @@ public class Order extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s!=null){
                     dingdan = s.toString();
-                    if(index==7){
+                    if(index==7){//销退验收
                         Intent intent = new Intent(Order.this,XiaoTuiYanShou.class);
                         intent.putExtra("order",s.toString());
                         startActivity(intent);
-                    }else if(index==4&&s.length()==13){
+                    }else if(index==4&&s.length()==13){//拣货下架
                         String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getOrderInfo+s+HttpApi.baseWarehouseCode+HttpApi.code;
                         HttpUtils.httpGET(url,handler);
 
-                    }else if(index==10&&s.length()==14){
+                    }else if(index==10&&s.length()==14){//盘点任务
                         Intent intent = new Intent(Order.this,PanDianRenWu.class);
                         intent.putExtra("order",s.toString());
                         startActivity(intent);
-                    }else if(index==6&&s.length()==14){
+                    }else if(index==6&&s.length()==14){//补货作业
                         dingdan = s.toString();
                         MoveTaskRequest mtr = new MoveTaskRequest();
                         mtr.setTaskNo(s.toString());
@@ -105,18 +105,17 @@ public class Order extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    }else if(index==2||index==3){
+                    }else if(index==2||index==3){//销退、反架
                         Intent intent = new Intent(Order.this,XiaoFanShangJia.class);
                       /*  Bundle bd = new Bundle();
                         bd.putCharSequence("order",s);
                         bd.putInt("index",index);
                         intent.putExtras(bd);*/
                         startActivity(intent);
-                    }else if(index==0&&s.length()==14){
-                        if(index==0){
+                    }else if(index==0&&s.length()==14){//采购上架
                             String url = HttpApi.Ip+HttpApi.requestHead+HttpApi.getPrePurchaseProduct+s+HttpApi.baseWarehouseCode+HttpApi.code;
                             HttpUtils.httpGET(url,handler);
-                        }
+
                     }
                 }
             }
