@@ -28,6 +28,7 @@ import app.wms.empty.CustOrderProductResponse;
 import app.wms.empty.HttpApi;
 import app.wms.tool.HttpUtils;
 import app.wms.tool.Json;
+import app.wms.tool.Others;
 
 
 public class JianHuoXIaJia extends AppCompatActivity implements View.OnClickListener {
@@ -138,6 +139,8 @@ public class JianHuoXIaJia extends AppCompatActivity implements View.OnClickList
                         tv_jhxj_huowei.setText("");
                         et_jhxj_shixianum.setText("");
                         et_jhxj_shixiahuowei.setText("");
+                    }else{
+                        Toast.makeText(JianHuoXIaJia.this,jo.getString("message"),Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -155,6 +158,7 @@ public class JianHuoXIaJia extends AppCompatActivity implements View.OnClickList
         tv_jhxj_sku.setText(list.get(i).getName());
         tv_jhxj_unit.setText(list.get(i).getUnit());
         tv_jhxj_yixianum.setText(list.get(i).getOffShelfNum()+"/"+list.get(i).getPlanNum());
+        tv_jhxj_yingnum.setText(String.valueOf(list.get(i).getPlanNum()));
     }
 
     @Override
@@ -174,7 +178,7 @@ public class JianHuoXIaJia extends AppCompatActivity implements View.OnClickList
                     co.setSku(list.get(productIndex).getSku());
                     co.setActualNum(Integer.valueOf(num));
                     co.setOutboundNo(list.get(productIndex).getOutboundNo());
-                    co.setOperator("20160928");
+                    co.setOperator(Others.getOperator());
                     co.setPlanNum(list.get(productIndex).getPlanNum());
                     Gson gson = new Gson();
                     String params = gson.toJson(co);
