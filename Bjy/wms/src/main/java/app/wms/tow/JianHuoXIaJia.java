@@ -159,6 +159,7 @@ public class JianHuoXIaJia extends AppCompatActivity implements View.OnClickList
         tv_jhxj_unit.setText(list.get(i).getUnit());
         tv_jhxj_yixianum.setText(list.get(i).getOffShelfNum()+"/"+list.get(i).getPlanNum());
         tv_jhxj_yingnum.setText(String.valueOf(list.get(i).getPlanNum()));
+        et_jhxj_shixianum.setText("");
     }
 
     @Override
