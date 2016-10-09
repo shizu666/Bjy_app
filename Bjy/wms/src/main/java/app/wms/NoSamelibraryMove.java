@@ -300,8 +300,8 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                 if(xiaFalg){
                     StockLocationRequest slr = new StockLocationRequest();
                     slr.setOperator(listResponse.get(productIndex).getOperator());
-                    slr.setLocationCode(listResponse.get(productIndex).getSrcLocation());
-                    slr.setSku(listResponse.get(productIndex).getSku());
+                    slr.setLocationCode(et_nslm_xiajiahuowei.getText().toString());
+                    slr.setSku(et_nslm_xiajiasku.getText().toString());
                     slr.setWarehouseCode(listResponse.get(productIndex).getWarehouseCode());
                     slr.setOwnerCode(listResponse.get(productIndex).getOwnerCode());
                     slr.setValidNum(Integer.valueOf(et_nslm_xianum.getText().toString()));
@@ -318,8 +318,8 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                 if(shangFlag){
                     StockLocationRequest slr = new StockLocationRequest();
                     slr.setOperator(listResponse.get(productIndex).getOperator());
-                    slr.setLocationCode(listResponse.get(productIndex).getDestLocation());
-                    slr.setSku(listResponse.get(productIndex).getSku());
+                    slr.setLocationCode(et_nslm_shangjiahuowei.getText().toString());
+                    slr.setSku(et_nslm_shangjiasku.getText().toString());
                     slr.setWarehouseCode(listResponse.get(productIndex).getWarehouseCode());
                     slr.setOwnerCode(listResponse.get(productIndex).getOwnerCode());
                     slr.setValidNum(Integer.valueOf(et_nslm_shangjiaplannum.getText().toString()));
