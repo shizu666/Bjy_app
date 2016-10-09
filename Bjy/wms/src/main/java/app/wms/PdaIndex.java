@@ -74,7 +74,7 @@ public class PdaIndex extends AppCompatActivity {
         list.add(map);
         map = new HashMap<String,Object>();
         map.put("img",R.mipmap.kua);
-        map.put("name","跨区移库");
+        map.put("name","移库管理");
         list.add(map);
         map = new HashMap<String,Object>();
         map.put("img",R.mipmap.pan);

@@ -60,7 +60,7 @@ public class Order extends AppCompatActivity {
         list.add("补货作业");
         list.add("销退验收");
         list.add("同区移库");
-        list.add("跨区移库");
+        list.add("移库管理");
         list.add("盘点作业");
         list.add("库存查询");
 
