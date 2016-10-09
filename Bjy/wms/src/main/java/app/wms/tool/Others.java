@@ -2,6 +2,7 @@ package app.wms.tool;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 /**
  * Created by zhou on 2016/9/27.
@@ -30,6 +31,11 @@ public class Others {
         SharedPreferences shared=context.getSharedPreferences(user, 0);
         result=shared.getString(key, "-1");
         return result;
+    }
+
+
+    public static void showToast(Context context ,String name){
+        Toast.makeText(context,name,Toast.LENGTH_LONG).show();
     }
 
 }

@@ -6,7 +6,7 @@ package app.wms.empty;
 
 public class HttpApi {
     //IP地址192.168.9.130  10.2.0.27
-    public static final String Ip = "http://192.168.9.135:8080/";
+    public static final String Ip = "http://192.168.154.1:8080/";
 
     //仓库号
     public static final String code = "sh001";
@@ -57,6 +57,8 @@ public class HttpApi {
     //盘点入库
     public static final String addInventoryResult = "inventory/addInventoryResult";
 
+    //出库确认
+    public static final String affirm = "outbound/affirm";
 
 
     //查询商品信息
