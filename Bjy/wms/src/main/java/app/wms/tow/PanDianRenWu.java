@@ -84,6 +84,8 @@ public class PanDianRenWu extends AppCompatActivity implements View.OnClickListe
                             slr.setLocationCode(joo.getString("locationCode"));
                             slr.setWarehouseCode(joo.getString("warehouseCode"));
                             slr.setOwnerCode(joo.getString("ownerCode"));
+                            slr.setProductName(joo.getString("name"));
+                            slr.setProductUnit(joo.getString("unit"));
                             listResult.add(slr);
                         }
                         upView(0);
@@ -100,7 +102,8 @@ public class PanDianRenWu extends AppCompatActivity implements View.OnClickListe
     private void upView(int i){
         StockInventoryResult slr = listResult.get(i);
         tv_pd_local.setText(slr.getLocationCode());
-        tv_pd_name.setText("返回数据没有名字");
+        tv_pd_name.setText(slr.getProductName());
+        tv_pd_unit.setText(slr.getProductUnit());
     }
 
 

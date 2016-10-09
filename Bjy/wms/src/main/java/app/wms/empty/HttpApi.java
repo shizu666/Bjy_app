@@ -6,7 +6,7 @@ package app.wms.empty;
 
 public class HttpApi {
     //IP地址192.168.9.130  10.2.0.27
-    public static final String Ip = "http://192.168.9.130:8080/";
+    public static final String Ip = "http://192.168.9.135:8080/";
 
     //仓库号
     public static final String code = "sh001";

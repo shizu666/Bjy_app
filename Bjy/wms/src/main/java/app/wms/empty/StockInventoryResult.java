@@ -56,6 +56,25 @@ public class StockInventoryResult {
     /** 有效标识 */
     private Integer yn;
 
+    private String productName;
+    private String productUnit;
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductUnit() {
+        return productUnit;
+    }
+
+    public void setProductUnit(String productUnit) {
+        this.productUnit = productUnit;
+    }
+
     public Integer getTaskStatus() {
         return taskStatus;
     }
