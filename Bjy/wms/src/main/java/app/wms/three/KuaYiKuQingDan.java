@@ -4,6 +4,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -32,13 +34,15 @@ import app.wms.view.MyListView;
 public class KuaYiKuQingDan extends AppCompatActivity {
 
     private MyListView myListView;
-    private List<MyQingDan> list = new ArrayList<MyQingDan>();;
+    private List<MyQingDan> list = new ArrayList<MyQingDan>();
     private ScrollView scrollView;
+    private Button but_kqkqd_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kua_yi_ku_qing_dan);
         scrollView = (ScrollView) findViewById(R.id.sv_kykqd);
+        but_kqkqd_back = (Button) findViewById(R.id.but_kqkqd_back);
         scrollView.smoothScrollTo(0,0);
         myListView = (MyListView) findViewById(R.id.mlv_kykqd);
 
@@ -55,8 +59,13 @@ public class KuaYiKuQingDan extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        KykqdListViewAdapter adapter = new KykqdListViewAdapter(this,list);
-        myListView.setAdapter(adapter);
+        but_kqkqd_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                KuaYiKuQingDan.this.finish();
+            }
+        });
+
 
     }
 
@@ -90,6 +99,8 @@ public class KuaYiKuQingDan extends AppCompatActivity {
                             mqd.setTv_qd_dsj(String.valueOf(joo.getInt("planNum")-joo.getInt("actualNum")));//待上架数量
                             list.add(mqd);
                         }
+                        KykqdListViewAdapter adapter = new KykqdListViewAdapter(KuaYiKuQingDan.this,list);
+                        myListView.setAdapter(adapter);
                     }else{
                         Toast.makeText(KuaYiKuQingDan.this,jo.getString("message"),Toast.LENGTH_LONG).show();
                         KuaYiKuQingDan.this.finish();
