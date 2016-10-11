@@ -56,6 +56,25 @@
                         android:layout_height="wrap_content"
                         android:text="下架货位"
                         android:textSize="@dimen/size"/>
+                    <TextView
+                        android:id="@+id/tv_nslm_xiajiahuowei"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/size"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="下架货位"
+                        android:textSize="@dimen/size"/>
                     <EditText
                         android:id="@+id/et_nslm_xiajiahuowei"
                         android:layout_width="match_parent"
@@ -76,6 +95,26 @@
                         android:layout_height="wrap_content"
                         android:text="商品条码"
                         android:textSize="@dimen/size"/>
+                    <TextView
+                        android:id="@+id/tv_nslm_xiajiasku"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/size"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="商品条码"
+                        android:textSize="@dimen/size"/>
                     <EditText
                         android:id="@+id/et_nslm_xiajiasku"
                         android:layout_width="match_parent"
@@ -84,7 +123,8 @@
                         android:textSize="@dimen/size"
                         android:gravity="center_vertical"
                         android:background="@drawable/bg_edittext"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        android:inputType="number" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -101,6 +141,26 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height"
                         android:textColor="#fff"
+                        android:textSize="@dimen/size"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="已下数量"
+                        android:textSize="@dimen/size"/>
+                    <TextView
+                        android:id="@+id/tv_nslm_yixianum"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height"
+                        android:textColor="#fff"
+                        android:text="0/0"
                         android:textSize="@dimen/size"
                         android:gravity="center_vertical"
                         android:layout_marginLeft="10dp"/>
@@ -151,6 +211,25 @@
                         android:layout_height="wrap_content"
                         android:text="上架货位"
                         android:textSize="@dimen/size"/>
+                    <TextView
+                        android:id="@+id/tv_nslm_shangjiahuowei"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/size"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上架货位"
+                        android:textSize="@dimen/size"/>
                     <EditText
                         android:id="@+id/et_nslm_shangjiahuowei"
                         android:layout_width="match_parent"
@@ -171,6 +250,25 @@
                         android:layout_height="wrap_content"
                         android:text="商品条码"
                         android:textSize="@dimen/size"/>
+                    <TextView
+                        android:id="@+id/tv_nslm_shangjiasku"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="商品条码"
+                        android:textSize="@dimen/size"/>
                     <EditText
                         android:id="@+id/et_nslm_shangjiasku"
                         android:layout_width="match_parent"
@@ -179,7 +277,8 @@
                         android:textSize="20sp"
                         android:gravity="center_vertical"
                         android:background="@drawable/bg_edittext"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        android:inputType="number"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -216,6 +315,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
+                        android:text="0/0"
                         android:textSize="@dimen/size"
                         android:textStyle="bold"
                         android:layout_marginLeft="10dp"/>

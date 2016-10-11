@@ -39,10 +39,10 @@ import app.wms.tool.Others;
 
 public class NoSamelibraryMove extends AppCompatActivity implements View.OnClickListener {
     //移库下架
-    private TextView tv_nslm_xiajia , tv_nslm_xiajianame ,tv_nslm_xiajiaunit;
+    private TextView tv_nslm_xiajia , tv_nslm_xiajianame ,tv_nslm_xiajiaunit ,tv_nslm_xiajiahuowei ,tv_nslm_xiajiasku ,tv_nslm_yixianum;
     private EditText et_nslm_xiajiahuowei ,et_nslm_xiajiasku ,et_nslm_xianum;
     //移库上架
-    private TextView tv_nslm_shangjia ,tv_nslm_shangjianame ,tv_nslm_shangjianum ,tv_nslm_shangjiaunit;
+    private TextView tv_nslm_shangjia ,tv_nslm_shangjianame ,tv_nslm_shangjianum ,tv_nslm_shangjiaunit ,tv_nslm_shangjiahuowei ,tv_nslm_shangjiasku;
     private EditText et_nslm_shangjiahuowei ,et_nslm_shangjiasku ,et_nslm_shangjiaplannum;
 
     private LinearLayout ll_nslm_shang ,ll_nslm_xia;
@@ -52,7 +52,8 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
     private List<MoveTaskProductResponse> listResponse = new ArrayList<MoveTaskProductResponse>();
     private String xialocal , xiasku ,shanglocal ,shangsku;
     private boolean xiaLocalFlag = false , xiaSkuFlag = false , shangLocalFlag = false, shangSkuFlag = false;
-    private int productIndex;
+    private int productIndex = 0 , productShangIndex = 0;
+    private int xiaNum = 0, shangNum = 0 ,planNum = 0, actNum  = 0,actOffNum = 0 ,actPlanNum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
         MoveTaskRequest mtr = new MoveTaskRequest();
         mtr.setWarehouseCode(HttpApi.code);
         mtr.setOperator(Others.getOperator());
-        Gson gson = new Gson();
+        Gson gson = Json.getGson();
         String params = gson.toJson(mtr);
         try {
             HttpUtils.httpPost(urlTask,params,handler);
@@ -72,7 +73,7 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
             e.printStackTrace();
         }
 
-        //监听下架内容
+      /*  //监听下架内容
         et_nslm_xiajiahuowei.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -175,12 +176,12 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
 
             }
         });
-
+*/
     }
 
 
     //判断上架还是下架
-    public void checkLocalSku(String xia , String shang){
+/*    public void checkLocalSku(String xia , String shang){
         if(xia.equals("xia")){
             boolean xiaflag = false;
             for(int i = 0 ; i <listResponse.size() ; i++){
@@ -210,18 +211,29 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
             }
         }
 
-    }
+    }*/
 
     //更新下架信息
     private void upXiaView(int i) {
-        tv_nslm_xiajianame.setText(listResponse.get(i).getProductName());
-        tv_nslm_xiajiaunit.setText(listResponse.get(i).getProductUnit());
+        MoveTaskProductResponse mtpr = listResponse.get(i);
+        tv_nslm_xiajianame.setText(mtpr.getProductName());
+        tv_nslm_xiajiaunit.setText(mtpr.getProductUnit());
+        tv_nslm_yixianum.setText(mtpr.getActualOffNum()+"/"+mtpr.getPlanNum());
+        tv_nslm_xiajiahuowei.setText(mtpr.getSrcLocation());
+        tv_nslm_xiajiasku.setText(mtpr.getSku());
+        planNum = mtpr.getPlanNum();
+        actOffNum = mtpr.getActualOffNum();
     }
     //更新上架信息
     private void upShangView(int i) {
-        tv_nslm_shangjianame.setText(listResponse.get(i).getProductName());
-        tv_nslm_shangjiaunit.setText(listResponse.get(i).getProductUnit());
-        tv_nslm_shangjianum.setText(listResponse.get(i).getActualNum()+"/"+listResponse.get(i).getPlanNum());
+        MoveTaskProductResponse mtpr = listResponse.get(i);
+        tv_nslm_shangjianame.setText(mtpr.getProductName());
+        tv_nslm_shangjiaunit.setText(mtpr.getProductUnit());
+        tv_nslm_shangjianum.setText(mtpr.getActualNum()+"/"+mtpr.getPlanNum());
+        tv_nslm_shangjiahuowei.setText(mtpr.getDestLocation());
+        tv_nslm_shangjiasku.setText(mtpr.getSku());
+        actPlanNum = mtpr.getPlanNum();
+        actNum = mtpr.getActualNum();
     }
 
     //接受跨区移库任务信息
@@ -247,6 +259,7 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                                 mtr.setProductUnit(joo.getString("productUnit"));
                                 mtr.setPlanNum(joo.getInt("planNum"));
                                 mtr.setActualNum(joo.getInt("actualNum"));
+                                mtr.setActualOffNum(joo.getInt("actualOffNum"));
                                 mtr.setWarehouseCode(j.getString("warehouseCode"));
                                 mtr.setOwnerCode(j.getString("ownerCode"));
                                 mtr.setOperator(Others.getOperator());
@@ -254,6 +267,7 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                                 mtr.setBatchNo(joo.getString("batchNo"));
                                 listResponse.add(mtr);
                             }
+                            upXiaView(0);
                         }else{
                             Toast.makeText(NoSamelibraryMove.this,jo.getString("message"),Toast.LENGTH_LONG).show();
                             NoSamelibraryMove.this.finish();
@@ -288,6 +302,7 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                 tv_nslm_shangjia.setBackgroundColor(Color.parseColor("#ffffff"));
                 shangFlag = true;
                 xiaFalg = false;
+                upShangView(0);
                 break;
             case R.id.but_nslm_dsj://移库待上架清单
                 Intent intent = new Intent(this, KuaYiKuQingDan.class);
@@ -298,41 +313,57 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.but_nslm_confirm:
                 if(xiaFalg){
-                    StockLocationRequest slr = new StockLocationRequest();
-                    slr.setOperator(listResponse.get(productIndex).getOperator());
-                    slr.setLocationCode(et_nslm_xiajiahuowei.getText().toString());
-                    slr.setSku(et_nslm_xiajiasku.getText().toString());
-                    slr.setWarehouseCode(listResponse.get(productIndex).getWarehouseCode());
-                    slr.setOwnerCode(listResponse.get(productIndex).getOwnerCode());
-                    slr.setValidNum(Integer.valueOf(et_nslm_xianum.getText().toString()));
-                    slr.setTaskNo(listResponse.get(productIndex).getTaskNo());
-                    Gson gson = new Gson();
-                    String params = gson.toJson(slr);
-                    String urlxia = HttpApi.Ip+HttpApi.requestHead+HttpApi.diffMoveStockLocationOff;
-                    try {
-                        HttpUtils.httpPost(urlxia,params,handler2);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    String xiahw = et_nslm_xiajiahuowei.getText().toString();
+                    String xiasku = et_nslm_xiajiasku.getText().toString();
+                    xiaNum = Integer.valueOf(et_nslm_xianum.getText().toString());
+                    if((xiaNum+actOffNum)>planNum){
+                        Others.showToast(this,"数量大于计划下架数量");
+                    }else{
+                        MoveTaskProductResponse mtpr = listResponse.get(productIndex);
+                        StockLocationRequest slr = new StockLocationRequest();
+                        slr.setOperator(mtpr.getOperator());
+                        slr.setLocationCode(xiahw);
+                        slr.setSku(xiasku);
+                        slr.setWarehouseCode(mtpr.getWarehouseCode());
+                        slr.setOwnerCode(mtpr.getOwnerCode());
+                        slr.setValidNum(xiaNum);
+                        slr.setTaskNo(mtpr.getTaskNo());
+                        Gson gson = Json.getGson();
+                        String params = gson.toJson(slr);
+                        String urlxia = HttpApi.Ip+HttpApi.requestHead+HttpApi.diffMoveStockLocationOff;
+                        try {
+                            HttpUtils.httpPost(urlxia,params,handler2);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
                 if(shangFlag){
-                    StockLocationRequest slr = new StockLocationRequest();
-                    slr.setOperator(listResponse.get(productIndex).getOperator());
-                    slr.setLocationCode(et_nslm_shangjiahuowei.getText().toString());
-                    slr.setSku(et_nslm_shangjiasku.getText().toString());
-                    slr.setWarehouseCode(listResponse.get(productIndex).getWarehouseCode());
-                    slr.setOwnerCode(listResponse.get(productIndex).getOwnerCode());
-                    slr.setValidNum(Integer.valueOf(et_nslm_shangjiaplannum.getText().toString()));
-                    slr.setTaskNo(listResponse.get(productIndex).getTaskNo());
-                    slr.setBatchNo(listResponse.get(productIndex).getBatchNo());
-                    Gson gson = new Gson();
-                    String params = gson.toJson(slr);
-                    String urlxia = HttpApi.Ip+HttpApi.requestHead+HttpApi.diffMoveStockLocationOn;
-                    try {
-                        HttpUtils.httpPost(urlxia,params,handler2);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    String shanghw = et_nslm_shangjiahuowei.getText().toString();
+                    String shangsku = et_nslm_shangjiasku.getText().toString();
+                    shangNum = Integer.valueOf(et_nslm_shangjiaplannum.getText().toString());
+                    if((shangNum+actNum) > actPlanNum){
+                        Others.showToast(this,"数量大于计划上架数量");
+                    }else{
+                        StockLocationRequest slr = new StockLocationRequest();
+                        slr.setOperator(listResponse.get(productIndex).getOperator());
+                        slr.setLocationCode(shanghw);
+                        slr.setSku(shangsku);
+                        slr.setWarehouseCode(listResponse.get(productIndex).getWarehouseCode());
+                        slr.setOwnerCode(listResponse.get(productIndex).getOwnerCode());
+                        slr.setValidNum(shangNum);
+                        slr.setTaskNo(listResponse.get(productIndex).getTaskNo());
+                        slr.setBatchNo(listResponse.get(productIndex).getBatchNo());
+                        Gson gson = new Gson();
+                        String params = gson.toJson(slr);
+                        String urlxia = HttpApi.Ip+HttpApi.requestHead+HttpApi.diffMoveStockLocationOn;
+                        try {
+                            HttpUtils.httpPost(urlxia,params,handler2);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
+
                 }
                 break;
         }
@@ -349,10 +380,21 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                     try {
                         JSONObject jo = Json.getObject(result);
                         if(jo.getInt("code")==200){
-                            tv_nslm_xiajianame.setText("");
-                            et_nslm_xiajiasku.setText("");
-                            et_nslm_xiajiahuowei.setText("");
-                            et_nslm_xianum.setText("");
+                            actOffNum = xiaNum + actOffNum;
+                            if(actOffNum < planNum){//先判断数量是否相等，在判断订单数量
+                                tv_nslm_yixianum.setText(actOffNum+"/"+planNum);
+                                et_nslm_xianum.setText("");
+                            }else if(actOffNum == planNum){
+                                if(productIndex == listResponse.size()-1){
+                                    cleanXiaJiaMess();
+                                    Others.showToast(NoSamelibraryMove.this,"此订单商品已全部完成下架操作！");
+                                    tv_nslm_shangjia.setClickable(true);
+                                }else{
+                                    productIndex++;
+                                    cleanXiaJiaMess();
+                                    upXiaView(productIndex);
+                                }
+                            }
                         }else{
                             Toast.makeText(NoSamelibraryMove.this,jo.getString("message"),Toast.LENGTH_LONG).show();
                         }
@@ -367,11 +409,20 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
                     try {
                         JSONObject jo = Json.getObject(result);
                         if(jo.getInt("code")==200){
-                            tv_nslm_shangjianame.setText("");
-                            et_nslm_shangjiaplannum.setText("");
-                            et_nslm_shangjiasku.setText("");
-                            et_nslm_shangjiahuowei.setText("");
-                            tv_nslm_shangjianum.setText("0/0");
+                            actNum = shangNum + actNum;
+                            if(actNum < actPlanNum){
+                                tv_nslm_shangjianum.setText(actNum+"/"+actPlanNum);
+                                et_nslm_shangjiaplannum.setText("");
+                            }else if(actNum == actPlanNum){
+                                if(productShangIndex == listResponse.size()-1){
+                                    cleanShangJiaMess();
+                                    Others.showToast(NoSamelibraryMove.this,"此订单商品已全部完成上架操作！");
+                                }else{
+                                    productShangIndex++;
+                                    cleanShangJiaMess();
+                                    upShangView(productShangIndex);
+                                }
+                            }
                         }else{
                             Toast.makeText(NoSamelibraryMove.this,jo.getString("message"),Toast.LENGTH_LONG).show();
                         }
@@ -383,6 +434,26 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
         }
     };
 
+    private void cleanXiaJiaMess(){
+        tv_nslm_xiajianame.setText("");
+        tv_nslm_xiajiahuowei.setText("");
+        tv_nslm_xiajiasku.setText("");
+        tv_nslm_shangjianum.setText("0/0");
+        et_nslm_xiajiasku.setText("");
+        et_nslm_xiajiahuowei.setText("");
+        et_nslm_xianum.setText("");
+    }
+
+
+    private void cleanShangJiaMess(){
+        tv_nslm_shangjiahuowei.setText("");
+        tv_nslm_shangjiasku.setText("");
+        tv_nslm_shangjianame.setText("");
+        et_nslm_shangjiaplannum.setText("");
+        et_nslm_shangjiasku.setText("");
+        et_nslm_shangjiahuowei.setText("");
+        tv_nslm_shangjianum.setText("0/0");
+    }
 
 
 
@@ -392,6 +463,9 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
         tv_nslm_xiajia = (TextView) findViewById(R.id.tv_nslm_xiajia);
         tv_nslm_xiajianame = (TextView) findViewById(R.id.tv_nslm_xiajianame);
         tv_nslm_xiajiaunit = (TextView) findViewById(R.id.tv_nslm_xiajiaunit);
+        tv_nslm_yixianum = (TextView) findViewById(R.id.tv_nslm_yixianum);
+        tv_nslm_xiajiahuowei = (TextView) findViewById(R.id.tv_nslm_xiajiahuowei);
+        tv_nslm_xiajiasku = (TextView) findViewById(R.id.tv_nslm_xiajiasku);
         et_nslm_xiajiahuowei = (EditText) findViewById(R.id.et_nslm_xiajiahuowei);
         et_nslm_xiajiasku = (EditText) findViewById(R.id.et_nslm_xiajiasku);
         et_nslm_xianum = (EditText) findViewById(R.id.et_nslm_xianum);
@@ -400,6 +474,8 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
         tv_nslm_shangjianame = (TextView) findViewById(R.id.tv_nslm_shangjianame);
         tv_nslm_shangjianum = (TextView) findViewById(R.id.tv_nslm_shangjianum);
         tv_nslm_shangjiaunit = (TextView) findViewById(R.id.tv_nslm_shangjiaunit);
+        tv_nslm_shangjiahuowei = (TextView) findViewById(R.id.tv_nslm_shangjiahuowei);
+        tv_nslm_shangjiasku = (TextView) findViewById(R.id.tv_nslm_shangjiasku);
         et_nslm_shangjiahuowei = (EditText) findViewById(R.id.et_nslm_shangjiahuowei);
         et_nslm_shangjiasku = (EditText) findViewById(R.id.et_nslm_shangjiasku);
         et_nslm_shangjiaplannum = (EditText) findViewById(R.id.et_nslm_shangjiaplannum);
@@ -418,5 +494,6 @@ public class NoSamelibraryMove extends AppCompatActivity implements View.OnClick
         but_nslm_dsj.setOnClickListener(this);
         but_nslm_back.setOnClickListener(this);
         but_nslm_confirm.setOnClickListener(this);
+        tv_nslm_shangjia.setClickable(false);
     }
 }
